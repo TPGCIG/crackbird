@@ -28,6 +28,10 @@ export default function FlappyBird() {
   const [categories, setCategories] = useState<string[]>([])
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [isTouchDevice, setIsTouchDevice] = useState(false)
+  const [showQuizWarning, setShowQuizWarning] = useState(false)
+  const [showWheel, setShowWheel] = useState(false)
+  const [wheelSpinning, setWheelSpinning] = useState(false)
+  const [wheelResult, setWheelResult] = useState<'lucky' | 'unlucky' | null>(null)
 
   const audioRefs = useRef({
     jump: null as HTMLAudioElement | null,
@@ -221,18 +225,26 @@ export default function FlappyBird() {
       audioRefs.current.mainGameLoop.pause()
     }
 
-    // Filter questions by selected categories
-    const filteredQuestions = questions.filter(q => selectedCategories.includes(q.category))
-
-    // If no categories selected, use all questions
-    const availableQuestions = filteredQuestions.length > 0 ? filteredQuestions : questions
-
-    const randomQuestion = availableQuestions[Math.floor(Math.random() * availableQuestions.length)]
-    setCurrentQuestion(randomQuestion)
-    setQuizActive(true)
+    // Show warning message first
+    setShowQuizWarning(true)
     gameDataRef.current.quizActive = true
-    setSelectedAnswer(null)
-    setShowExplanation(false)
+
+    // After 1.5 seconds, show the actual quiz
+    setTimeout(() => {
+      setShowQuizWarning(false)
+
+      // Filter questions by selected categories
+      const filteredQuestions = questions.filter(q => selectedCategories.includes(q.category))
+
+      // If no categories selected, use all questions
+      const availableQuestions = filteredQuestions.length > 0 ? filteredQuestions : questions
+
+      const randomQuestion = availableQuestions[Math.floor(Math.random() * availableQuestions.length)]
+      setCurrentQuestion(randomQuestion)
+      setQuizActive(true)
+      setSelectedAnswer(null)
+      setShowExplanation(false)
+    }, 1500)
   }
 
   const handleQuizAnswer = (answerIndex: number) => {
@@ -249,6 +261,78 @@ export default function FlappyBird() {
         audioRefs.current.wrongResponse.currentTime = 0
         audioRefs.current.wrongResponse.play().catch(() => {})
       }
+    }
+  }
+
+  const spinWheel = () => {
+    setQuizActive(false)
+    setCurrentQuestion(null)
+    setSelectedAnswer(null)
+    setShowExplanation(false)
+    setShowWheel(true)
+    setWheelSpinning(true)
+    setWheelResult(null)
+
+    // Determine result (20% lucky, 80% unlucky)
+    const isLucky = Math.random() < 0.2
+
+    // Calculate final rotation to land on the correct section
+    // The pointer is at the top (0 degrees). We rotate the wheel, so we need to
+    // calculate which rotation puts the desired section under the pointer.
+    // Lucky section is at 0-72 degrees (center at 36 degrees)
+    // To get 36 degrees under the pointer, we rotate by -36 (or +324)
+    // Unlucky sections: 72-144, 144-216, 216-288, 288-360
+    let finalAngle
+    if (isLucky) {
+      finalAngle = 324 // Rotate to put center of lucky section (36°) at top
+    } else {
+      // Pick a random unlucky section
+      // To land on centers: 108° needs 252° rotation, 180° needs 180°, 252° needs 108°, 324° needs 36°
+      const unluckySections = [36, 108, 180, 252]
+      finalAngle = unluckySections[Math.floor(Math.random() * unluckySections.length)]
+    }
+
+    // Add multiple rotations (2520 degrees = 7 rotations) plus final position
+    const totalRotation = 2520 + finalAngle
+
+    // Reset and apply the rotation via style
+    setTimeout(() => {
+      const wheelElement = document.querySelector('.wheel')
+      if (wheelElement) {
+        // First reset without transition
+        (wheelElement as HTMLElement).style.transition = 'none'
+        ;(wheelElement as HTMLElement).style.transform = 'rotate(0deg)'
+
+        // Then apply rotation with transition
+        setTimeout(() => {
+          (wheelElement as HTMLElement).style.transition = 'transform 5s cubic-bezier(0.17, 0.67, 0.12, 0.99)'
+          ;(wheelElement as HTMLElement).style.transform = `rotate(${totalRotation}deg)`
+        }, 50)
+      }
+    }, 100)
+
+    // Spin for 5 seconds then show result
+    setTimeout(() => {
+      setWheelSpinning(false)
+      setWheelResult(isLucky ? 'lucky' : 'unlucky')
+    }, 5200)
+  }
+
+  const handleWheelResult = () => {
+    if (wheelResult === 'lucky') {
+      // Give them a new question
+      setShowWheel(false)
+      setWheelResult(null)
+
+      // Trigger a new quiz
+      setTimeout(() => {
+        triggerQuiz()
+      }, 500)
+    } else {
+      // Proceed with penalty (speed up)
+      setShowWheel(false)
+      setWheelResult(null)
+      resumeGame(false)
     }
   }
 
@@ -586,6 +670,15 @@ export default function FlappyBird() {
         </div>
       )}
 
+      {showQuizWarning && (
+        <div className="quizOverlay">
+          <div className="quizWarning">
+            <h2>⚠️ Question Time! ⚠️</h2>
+            <p>Get ready...</p>
+          </div>
+        </div>
+      )}
+
       {quizActive && currentQuestion && (
         <div className="quizOverlay">
           <div className="quizContainer">
@@ -617,11 +710,62 @@ export default function FlappyBird() {
                   {selectedAnswer === currentQuestion.correct_option_index ? '✓ Correct!' : '✗ Incorrect'}
                 </p>
                 <p>{currentQuestion.explanation}</p>
-                <button
-                  className="button"
-                  onClick={() => resumeGame(selectedAnswer === currentQuestion.correct_option_index)}
-                >
-                  Continue
+                {selectedAnswer === currentQuestion.correct_option_index ? (
+                  <button
+                    className="button"
+                    onClick={() => resumeGame(true)}
+                  >
+                    Continue
+                  </button>
+                ) : (
+                  <button
+                    className="button wheelButton"
+                    onClick={spinWheel}
+                  >
+                    🎰 Spin the Wheel!
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {showWheel && (
+        <div className="quizOverlay">
+          <div className="wheelContainer">
+            <h2>Spin the Wheel!</h2>
+            <p>Can you redeem yourself?</p>
+
+            <div className="wheelOuter">
+              <div className={`wheel ${wheelSpinning ? 'spinning' : ''}`}>
+                <div className="wheelSlice slice1">
+                  <div className="sliceContent">🍀<br/>LUCKY</div>
+                </div>
+                <div className="wheelSlice slice2">
+                  <div className="sliceContent">💀</div>
+                </div>
+                <div className="wheelSlice slice3">
+                  <div className="sliceContent">💀</div>
+                </div>
+                <div className="wheelSlice slice4">
+                  <div className="sliceContent">💀</div>
+                </div>
+                <div className="wheelSlice slice5">
+                  <div className="sliceContent">💀</div>
+                </div>
+                <div className="wheelCenter"></div>
+              </div>
+              <div className="wheelPointer">▼</div>
+            </div>
+
+            {wheelResult && (
+              <div className="wheelResult">
+                <p className={wheelResult === 'lucky' ? 'lucky' : 'unlucky'}>
+                  {wheelResult === 'lucky' ? '🎉 YOU GOT LUCKY! New question coming!' : '😔 Better luck next time!'}
+                </p>
+                <button className="button" onClick={handleWheelResult}>
+                  {wheelResult === 'lucky' ? 'Get New Question' : 'Accept Penalty'}
                 </button>
               </div>
             )}
