@@ -24,6 +24,10 @@ export default function FlappyBird() {
   const [isSpedUp, setIsSpedUp] = useState(false)
   const [shouldSpeedUp, setShouldSpeedUp] = useState(false)
   const speedBoostTimerRef = useRef<NodeJS.Timeout | null>(null)
+  const [settingsOpen, setSettingsOpen] = useState(false)
+  const [categories, setCategories] = useState<string[]>([])
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+  const touchHandledRef = useRef(false)
 
   const gameDataRef = useRef({
     bird: {
@@ -61,6 +65,22 @@ export default function FlappyBird() {
     initBackground()
     loadQuestions()
   }, [])
+
+  useEffect(() => {
+    if (questions.length > 0) {
+      // Extract unique categories
+      const uniqueCategories = Array.from(new Set(questions.map(q => q.category)))
+      setCategories(uniqueCategories)
+
+      // Load selected categories from localStorage, default to all
+      const storedCategories = localStorage.getItem('selectedCategories')
+      if (storedCategories) {
+        setSelectedCategories(JSON.parse(storedCategories))
+      } else {
+        setSelectedCategories(uniqueCategories)
+      }
+    }
+  }, [questions])
 
   const loadQuestions = async () => {
     try {
@@ -130,8 +150,18 @@ export default function FlappyBird() {
     setShouldSpeedUp(false)
   }
 
-  const handleFlap = () => {
+  const handleFlap = (fromTouch: boolean = false) => {
     if (gameDataRef.current.gameState === 'playing' && !gameDataRef.current.quizActive && !gameDataRef.current.countdownActive) {
+      // Prevent double-firing from touch + click events
+      if (fromTouch) {
+        touchHandledRef.current = true
+        setTimeout(() => {
+          touchHandledRef.current = false
+        }, 300)
+      } else if (touchHandledRef.current) {
+        return
+      }
+
       gameDataRef.current.bird.velocity = gameDataRef.current.bird.jump
 
       // 15% chance to trigger a quiz
@@ -148,7 +178,13 @@ export default function FlappyBird() {
       gameDataRef.current.animationId = null
     }
 
-    const randomQuestion = questions[Math.floor(Math.random() * questions.length)]
+    // Filter questions by selected categories
+    const filteredQuestions = questions.filter(q => selectedCategories.includes(q.category))
+
+    // If no categories selected, use all questions
+    const availableQuestions = filteredQuestions.length > 0 ? filteredQuestions : questions
+
+    const randomQuestion = availableQuestions[Math.floor(Math.random() * availableQuestions.length)]
     setCurrentQuestion(randomQuestion)
     setQuizActive(true)
     gameDataRef.current.quizActive = true
@@ -399,6 +435,28 @@ export default function FlappyBird() {
     }
   }
 
+  const toggleCategory = (category: string) => {
+    setSelectedCategories(prev => {
+      const newCategories = prev.includes(category)
+        ? prev.filter(c => c !== category)
+        : [...prev, category]
+
+      // Save to localStorage
+      localStorage.setItem('selectedCategories', JSON.stringify(newCategories))
+      return newCategories
+    })
+  }
+
+  const selectAllCategories = () => {
+    setSelectedCategories(categories)
+    localStorage.setItem('selectedCategories', JSON.stringify(categories))
+  }
+
+  const deselectAllCategories = () => {
+    setSelectedCategories([])
+    localStorage.setItem('selectedCategories', JSON.stringify([]))
+  }
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.code === 'Space' && gameDataRef.current.gameState === 'playing' && !gameDataRef.current.quizActive && !gameDataRef.current.countdownActive) {
@@ -417,10 +475,10 @@ export default function FlappyBird() {
         ref={canvasRef}
         width={400}
         height={600}
-        onClick={handleFlap}
+        onClick={() => handleFlap(false)}
         onTouchStart={(e) => {
           e.preventDefault()
-          handleFlap()
+          handleFlap(true)
         }}
       />
 
@@ -437,6 +495,9 @@ export default function FlappyBird() {
           </div>
           <button className="button" onClick={startGame}>
             Start Game
+          </button>
+          <button className="button" onClick={() => setSettingsOpen(true)}>
+            Settings
           </button>
         </div>
       )}
@@ -504,6 +565,46 @@ export default function FlappyBird() {
       {isSpedUp && gameState === 'playing' && (
         <div className="speedBanner">
           ⚡ SPED UP! ⚡
+        </div>
+      )}
+
+      {settingsOpen && (
+        <div className="quizOverlay">
+          <div className="settingsContainer">
+            <h2>Settings</h2>
+            <p>Select question categories:</p>
+
+            <div className="settingsButtons">
+              <button className="button" onClick={selectAllCategories}>
+                Select All
+              </button>
+              <button className="button" onClick={deselectAllCategories}>
+                Deselect All
+              </button>
+            </div>
+
+            <div className="categoryList">
+              {categories.map(category => (
+                <label key={category} className="categoryItem">
+                  <input
+                    type="checkbox"
+                    checked={selectedCategories.includes(category)}
+                    onChange={() => toggleCategory(category)}
+                  />
+                  <span>{category}</span>
+                </label>
+              ))}
+            </div>
+
+            <div className="settingsFooter">
+              <p className="selectedCount">
+                {selectedCategories.length} of {categories.length} categories selected
+              </p>
+              <button className="button" onClick={() => setSettingsOpen(false)}>
+                Close
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

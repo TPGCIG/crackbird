@@ -290,3 +290,101 @@ h1 {
     transform: translateX(-50%) scale(1.05);
   }
 }
+
+.settingsContainer {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 90%;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.3s ease-out;
+}
+
+.settingsContainer h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.settingsContainer > p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.settingsButtons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.settingsButtons .button {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px 20px;
+  font-size: 1em;
+}
+
+.categoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.categoryItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.categoryItem:hover {
+  border-color: #667eea;
+  background: #f5f5ff;
+}
+
+.categoryItem input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.categoryItem span {
+  color: #333;
+  font-size: 1em;
+  flex: 1;
+}
+
+.settingsFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 2px solid #eee;
+}
+
+.selectedCount {
+  color: #667eea;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.settingsFooter .button {
+  width: 100%;
+  max-width: 200px;
+}
