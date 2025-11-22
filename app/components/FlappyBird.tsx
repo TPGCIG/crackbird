@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from 'react'
 
 interface Question {
-  category: string
-  question: string
+  id: string
+  text: string
   options: string[]
-  correct_option_index: number
-  explanation: string
+  correctIndex: number
+  category: string
 }
 
 export default function FlappyBird() {
@@ -79,12 +79,12 @@ export default function FlappyBird() {
     setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
 
     // Load audio files
-    audioRefs.current.jump = new Audio('/sounds/jump.mp3')
-    audioRefs.current.gameOver = new Audio('/sounds/game over - sound effect.mp3')
-    audioRefs.current.goodBoy = new Audio('/sounds/Good_boy.mp3')
-    audioRefs.current.mainGameLoop = new Audio('/sounds/main_game_loop.mp3')
-    audioRefs.current.passPoint = new Audio('/sounds/pass_point.mp3')
-    audioRefs.current.wrongResponse = new Audio('/sounds/wrong_response.mp3')
+    audioRefs.current.jump = new Audio('/sounds/jump.wav')
+    audioRefs.current.gameOver = new Audio('/sounds/game over - sound effect.wav')
+    audioRefs.current.goodBoy = new Audio('/sounds/Good_boy.wav')
+    audioRefs.current.mainGameLoop = new Audio('/sounds/main_game_loop.wav')
+    audioRefs.current.passPoint = new Audio('/sounds/pass_point.wav')
+    audioRefs.current.wrongResponse = new Audio('/sounds/wrong_response.wav')
 
     // Set background music to loop
     if (audioRefs.current.mainGameLoop) {
@@ -114,9 +114,9 @@ export default function FlappyBird() {
 
   const loadQuestions = async () => {
     try {
-      const response = await fetch('/data/questions.json')
+      const response = await fetch('/data/revised_questions.json')
       const data = await response.json()
-      setQuestions(data.quiz_collection)
+      setQuestions(data)
     } catch (error) {
       console.error('Failed to load questions:', error)
     }
@@ -253,7 +253,7 @@ export default function FlappyBird() {
 
     // Play correct or wrong sound
     if (currentQuestion) {
-      const isCorrect = answerIndex === currentQuestion.correct_option_index
+      const isCorrect = answerIndex === currentQuestion.correctIndex
       if (isCorrect && audioRefs.current.goodBoy) {
         audioRefs.current.goodBoy.currentTime = 0
         audioRefs.current.goodBoy.play().catch(() => {})
@@ -683,14 +683,14 @@ export default function FlappyBird() {
         <div className="quizOverlay">
           <div className="quizContainer">
             <div className="quizCategory">{currentQuestion.category}</div>
-            <h2 className="quizQuestion">{currentQuestion.question}</h2>
+            <h2 className="quizQuestion">{currentQuestion.text}</h2>
             <div className="quizOptions">
               {currentQuestion.options.map((option, index) => (
                 <button
                   key={index}
                   className={`quizOption ${
                     selectedAnswer !== null
-                      ? index === currentQuestion.correct_option_index
+                      ? index === currentQuestion.correctIndex
                         ? 'correct'
                         : index === selectedAnswer
                         ? 'incorrect'
@@ -706,11 +706,10 @@ export default function FlappyBird() {
             </div>
             {showExplanation && (
               <div className="quizExplanation">
-                <p className={selectedAnswer === currentQuestion.correct_option_index ? 'correct' : 'incorrect'}>
-                  {selectedAnswer === currentQuestion.correct_option_index ? '✓ Correct!' : '✗ Incorrect'}
+                <p className={selectedAnswer === currentQuestion.correctIndex ? 'correct' : 'incorrect'}>
+                  {selectedAnswer === currentQuestion.correctIndex ? '✓ Correct!' : '✗ Incorrect'}
                 </p>
-                <p>{currentQuestion.explanation}</p>
-                {selectedAnswer === currentQuestion.correct_option_index ? (
+                {selectedAnswer === currentQuestion.correctIndex ? (
                   <button
                     className="button"
                     onClick={() => resumeGame(true)}
