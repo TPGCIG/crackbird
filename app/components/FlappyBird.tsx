@@ -30,6 +30,7 @@ export default function FlappyBird() {
       ground: 0,
     },
     animationId: null as number | null,
+    gameState: 'start' as 'start' | 'playing' | 'gameover',
   })
 
   useEffect(() => {
@@ -55,6 +56,7 @@ export default function FlappyBird() {
 
   const startGame = () => {
     setGameState('playing')
+    gameDataRef.current.gameState = 'playing'
     setScore(0)
     gameDataRef.current.bird.y = 300
     gameDataRef.current.bird.velocity = 0
@@ -68,6 +70,7 @@ export default function FlappyBird() {
 
   const handleGameOver = () => {
     setGameState('gameover')
+    gameDataRef.current.gameState = 'gameover'
     if (score > bestScore) {
       setBestScore(score)
       localStorage.setItem('bestScore', score.toString())
@@ -78,7 +81,7 @@ export default function FlappyBird() {
   }
 
   const handleFlap = () => {
-    if (gameState === 'playing') {
+    if (gameDataRef.current.gameState === 'playing') {
       gameDataRef.current.bird.velocity = gameDataRef.current.bird.jump
     }
   }
@@ -93,7 +96,7 @@ export default function FlappyBird() {
     const { bird, pipes, background } = gameDataRef.current
 
     // Update
-    if (gameState === 'playing') {
+    if (gameDataRef.current.gameState === 'playing') {
       // Update bird
       bird.velocity += bird.gravity
       bird.y += bird.velocity
@@ -258,14 +261,14 @@ export default function FlappyBird() {
 
     ctx.restore()
 
-    if (gameState === 'playing') {
+    if (gameDataRef.current.gameState === 'playing') {
       gameDataRef.current.animationId = requestAnimationFrame(gameLoop)
     }
   }
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === 'Space' && gameState === 'playing') {
+      if (e.code === 'Space' && gameDataRef.current.gameState === 'playing') {
         e.preventDefault()
         handleFlap()
       }
@@ -273,7 +276,7 @@ export default function FlappyBird() {
 
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [gameState])
+  }, [])
 
   return (
     <div id="gameContainer">
