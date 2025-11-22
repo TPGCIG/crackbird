@@ -27,7 +27,7 @@ export default function FlappyBird() {
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [categories, setCategories] = useState<string[]>([])
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
-  const touchHandledRef = useRef(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
 
   const gameDataRef = useRef({
     bird: {
@@ -62,6 +62,8 @@ export default function FlappyBird() {
     if (stored) {
       setBestScore(parseInt(stored))
     }
+    // Detect touch device
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
     initBackground()
     loadQuestions()
   }, [])
@@ -150,18 +152,8 @@ export default function FlappyBird() {
     setShouldSpeedUp(false)
   }
 
-  const handleFlap = (fromTouch: boolean = false) => {
+  const handleFlap = () => {
     if (gameDataRef.current.gameState === 'playing' && !gameDataRef.current.quizActive && !gameDataRef.current.countdownActive) {
-      // Prevent double-firing from touch + click events
-      if (fromTouch) {
-        touchHandledRef.current = true
-        setTimeout(() => {
-          touchHandledRef.current = false
-        }, 300)
-      } else if (touchHandledRef.current) {
-        return
-      }
-
       gameDataRef.current.bird.velocity = gameDataRef.current.bird.jump
 
       // 15% chance to trigger a quiz
@@ -475,11 +467,19 @@ export default function FlappyBird() {
         ref={canvasRef}
         width={400}
         height={600}
-        onClick={() => handleFlap(false)}
-        onTouchStart={(e) => {
+        onClick={!isTouchDevice ? handleFlap : undefined}
+        onTouchStart={isTouchDevice ? (e) => {
           e.preventDefault()
-          handleFlap(true)
-        }}
+          e.stopPropagation()
+          handleFlap()
+        } : undefined}
+        onTouchEnd={isTouchDevice ? (e) => {
+          e.preventDefault()
+          e.stopPropagation()
+        } : undefined}
+        onTouchMove={isTouchDevice ? (e) => {
+          e.preventDefault()
+        } : undefined}
       />
 
       {gameState === 'playing' && (

@@ -34,6 +34,14 @@ body {
   image-rendering: crisp-edges;
 }
 
+canvas {
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .startScreen,
 .gameOverScreen {
   position: absolute;
