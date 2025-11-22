@@ -29,6 +29,15 @@ export default function FlappyBird() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [isTouchDevice, setIsTouchDevice] = useState(false)
 
+  const audioRefs = useRef({
+    jump: null as HTMLAudioElement | null,
+    gameOver: null as HTMLAudioElement | null,
+    goodBoy: null as HTMLAudioElement | null,
+    mainGameLoop: null as HTMLAudioElement | null,
+    passPoint: null as HTMLAudioElement | null,
+    wrongResponse: null as HTMLAudioElement | null,
+  })
+
   const gameDataRef = useRef({
     bird: {
       x: 50,
@@ -64,6 +73,21 @@ export default function FlappyBird() {
     }
     // Detect touch device
     setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
+
+    // Load audio files
+    audioRefs.current.jump = new Audio('/sounds/jump.mp3')
+    audioRefs.current.gameOver = new Audio('/sounds/game over - sound effect.mp3')
+    audioRefs.current.goodBoy = new Audio('/sounds/Good_boy.mp3')
+    audioRefs.current.mainGameLoop = new Audio('/sounds/main_game_loop.mp3')
+    audioRefs.current.passPoint = new Audio('/sounds/pass_point.mp3')
+    audioRefs.current.wrongResponse = new Audio('/sounds/wrong_response.mp3')
+
+    // Set background music to loop
+    if (audioRefs.current.mainGameLoop) {
+      audioRefs.current.mainGameLoop.loop = true
+      audioRefs.current.mainGameLoop.volume = 0.3
+    }
+
     initBackground()
     loadQuestions()
   }, [])
@@ -128,6 +152,13 @@ export default function FlappyBird() {
       clearTimeout(speedBoostTimerRef.current)
       speedBoostTimerRef.current = null
     }
+
+    // Play background music
+    if (audioRefs.current.mainGameLoop) {
+      audioRefs.current.mainGameLoop.currentTime = 0
+      audioRefs.current.mainGameLoop.play().catch(() => {})
+    }
+
     initBackground()
     requestAnimationFrame(gameLoop)
   }
@@ -150,11 +181,26 @@ export default function FlappyBird() {
     gameDataRef.current.isSpedUp = false
     setIsSpedUp(false)
     setShouldSpeedUp(false)
+
+    // Stop background music and play game over sound
+    if (audioRefs.current.mainGameLoop) {
+      audioRefs.current.mainGameLoop.pause()
+    }
+    if (audioRefs.current.gameOver) {
+      audioRefs.current.gameOver.currentTime = 0
+      audioRefs.current.gameOver.play().catch(() => {})
+    }
   }
 
   const handleFlap = () => {
     if (gameDataRef.current.gameState === 'playing' && !gameDataRef.current.quizActive && !gameDataRef.current.countdownActive) {
       gameDataRef.current.bird.velocity = gameDataRef.current.bird.jump
+
+      // Play jump sound
+      if (audioRefs.current.jump) {
+        audioRefs.current.jump.currentTime = 0
+        audioRefs.current.jump.play().catch(() => {})
+      }
 
       // 15% chance to trigger a quiz
       if (Math.random() < 0.15 && questions.length > 0) {
@@ -168,6 +214,11 @@ export default function FlappyBird() {
     if (gameDataRef.current.animationId) {
       cancelAnimationFrame(gameDataRef.current.animationId)
       gameDataRef.current.animationId = null
+    }
+
+    // Pause background music during quiz
+    if (audioRefs.current.mainGameLoop) {
+      audioRefs.current.mainGameLoop.pause()
     }
 
     // Filter questions by selected categories
@@ -187,6 +238,18 @@ export default function FlappyBird() {
   const handleQuizAnswer = (answerIndex: number) => {
     setSelectedAnswer(answerIndex)
     setShowExplanation(true)
+
+    // Play correct or wrong sound
+    if (currentQuestion) {
+      const isCorrect = answerIndex === currentQuestion.correct_option_index
+      if (isCorrect && audioRefs.current.goodBoy) {
+        audioRefs.current.goodBoy.currentTime = 0
+        audioRefs.current.goodBoy.play().catch(() => {})
+      } else if (!isCorrect && audioRefs.current.wrongResponse) {
+        audioRefs.current.wrongResponse.currentTime = 0
+        audioRefs.current.wrongResponse.play().catch(() => {})
+      }
+    }
   }
 
   const resumeGame = (isCorrect: boolean) => {
@@ -238,6 +301,11 @@ export default function FlappyBird() {
           gameDataRef.current.isSpedUp = false
           speedBoostTimerRef.current = null
         }, 3000)
+      }
+
+      // Resume background music
+      if (audioRefs.current.mainGameLoop) {
+        audioRefs.current.mainGameLoop.play().catch(() => {})
       }
 
       requestAnimationFrame(gameLoop)
@@ -301,6 +369,11 @@ export default function FlappyBird() {
         if (!pipe.passed && bird.x > pipe.x + gameDataRef.current.pipeWidth) {
           pipe.passed = true
           setScore((s) => s + 1)
+          // Play pass point sound
+          if (audioRefs.current.passPoint) {
+            audioRefs.current.passPoint.currentTime = 0
+            audioRefs.current.passPoint.play().catch(() => {})
+          }
         }
 
         // Remove off-screen pipes
