@@ -1,0 +1,4550 @@
+[
+  {
+    "id": "cracked-1",
+    "text": "What is an \"Inverted Page Table\" in Operating Systems?",
+    "options": [
+      "A page table that maps physical frames to virtual pages",
+      "A page table implemented in hardware instead of software",
+      "A page table that only tracks modified pages",
+      "A page table sorted by access frequency"
+    ],
+    "correctIndex": 0,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-2",
+    "text": "C++ Templates: Observe the code snippet.\n\ntemplate <typename Type> struct X {\n void bar() { cout << Type::identify(); }\n static string view identify() { return \"X\"; }\n};\n\ntemplate <typename Type> struct Y : Type {\n void bar() { cout << Type::identify(); }\n static string view identify() { return \"Y\"; }\n};\n\nclass Z {};\n\nint main() { Y<X<Y<Z>>>{}.bar(); }",
+    "options": [
+      "Y",
+      "X",
+      "Z",
+      "Compilation Error"
+    ],
+    "correctIndex": 1,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-3",
+    "text": "How big is it? Suppose a 32-bit memory address is used, and the system has: A 4 KB cache, 64-byte cache lines, 4-way set associativity. How many sets exist in the cache?",
+    "options": [
+      "16",
+      "32",
+      "4",
+      "8"
+    ],
+    "correctIndex": 0,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-4",
+    "text": "Scalable Counter Design: Which approach can help reduce lock contention when implementing a scalable counter?",
+    "options": [
+      "Making the counter volatile",
+      "Using smaller integers",
+      "Sloppy counter with per-CPU local counters",
+      "Using more locks"
+    ],
+    "correctIndex": 2,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-5",
+    "text": "PML? On a 64-bit system with 4 Kb pages, what is the maximum amount of levels (page directories) we can setup such that each directory exists inside a single page?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correctIndex": 1,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-6",
+    "text": "Computer Architecture: Which of the following best describes the relationship between clock cycle time and pipeline depth?",
+    "options": [
+      "Clock cycle time is independent of pipeline design",
+      "Deeper pipelines typically allow for shorter clock cycle times",
+      "Deeper pipelines require longer clock cycle times",
+      "Pipeline depth has no effect on clock cycle time"
+    ],
+    "correctIndex": 1,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-7",
+    "text": "The cost of .bss: Assuming x86 architecture, how many times do you pay for the cost of allocating a global uninitialized integer \"int y;\"?",
+    "options": [
+      "Two times",
+      "One time",
+      "Indeterminate",
+      "Zero times"
+    ],
+    "correctIndex": 3,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-8",
+    "text": "C++ Constructor Weirdness: \nstruct Person {\n template<typename T> Person(T&& t) : name(forward<T>(t)) { cout << \"1\"; }\n Person(const Person& p) { cout << \"2\"; }\n};\n\nint main() {\n auto x = Person(\"to\");\n Person(x);\n}",
+    "options": [
+      "Compilation error",
+      "11",
+      "12",
+      "Undefined behavior"
+    ],
+    "correctIndex": 0,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-9",
+    "text": "Python Type Hinting: What would a typechecker reveal as the type of x?\n\nimport typing\ndef foo(*x: int):\n  typing.reveal_type(x)",
+    "options": [
+      "tuple[int]",
+      "int",
+      "list[int]",
+      "tuple[int, ...]"
+    ],
+    "correctIndex": 3,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-10",
+    "text": "Infinite Async Loops (Rust/Tokio): A single threaded tokio app has multiple tasks looping infinitely accepting TCP connections. Will other tasks ever get to run?",
+    "options": [
+      "No",
+      "Yes",
+      "Only if connections drop",
+      "Depends on OS"
+    ],
+    "correctIndex": 1,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-11",
+    "text": "Python Small Numbers: What is the output of this CPython code?\na = 1; b = 1; print(a is b)\na = 257; b = 257; print(a is b)",
+    "options": [
+      "True, True",
+      "True, False",
+      "False, True",
+      "False, False"
+    ],
+    "correctIndex": 1,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-12",
+    "text": "TCP Connection Termination: How does TCP typically terminate a connection?",
+    "options": [
+      "With a four-way handshake",
+      "By timeout after inactivity",
+      "With a two-way handshake",
+      "With a three-way handshake"
+    ],
+    "correctIndex": 0,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-13",
+    "text": "C++ Templates & Const: Observe the code. template <typename T> void ByValue(T t) { cout << is_const_v<T>; } ... const float c = 0; ByValue(c); What is printed?",
+    "options": [
+      "1 (True)",
+      "0 (False)",
+      "Compilation Error",
+      "Undefined"
+    ],
+    "correctIndex": 1,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-14",
+    "text": "Nosy Cache: What describes a \"snoopy-cache\" protocol in cache coherence?",
+    "options": [
+      "Processor nodes snoop main memory before checking private cache",
+      "Each processor snoops neighbors before checking its own",
+      "Coherence messages are broadcast to all nodes via an interconnection bus",
+      "Nodes have different views of memory blocks"
+    ],
+    "correctIndex": 2,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-15",
+    "text": "Wheel of Misfortune: Why might \"pip install pkg-0.0.3-py3-none-linux_universal_x86_64.whl\" fail on Linux (glibc > 2.17, x86_64)?",
+    "options": [
+      "linux_universal_x86_64 is not a valid platform tag",
+      "none is not a valid ABI tag",
+      "py3 is not valid for CPython 3.13",
+      "0.0.3 is invalid version"
+    ],
+    "correctIndex": 0,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-16",
+    "text": "MAC Address Overlap: What potential issue exists with mapping IPv4 multicast addresses to MAC addresses?",
+    "options": [
+      "IPv4 multicast addresses cannot be represented",
+      "Mapping works only on certain networks",
+      "Special hardware required",
+      "Multiple IPv4 multicast addresses may map to the same MAC address"
+    ],
+    "correctIndex": 3,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-17",
+    "text": "Split Problems: What is the primary drawback of segmentation as a memory management technique?",
+    "options": [
+      "Increased TLB misses",
+      "No virtual memory support",
+      "Requires specialized hardware",
+      "It can lead to external fragmentation"
+    ],
+    "correctIndex": 3,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-18",
+    "text": "Host Multicast Filtering: At what layer(s) can multicast filtering be performed on a receiving host?",
+    "options": [
+      "At both the IP layer and the link layer",
+      "Only at the link layer",
+      "Only at the transport layer",
+      "Only at the IP layer"
+    ],
+    "correctIndex": 0,
+    "category": "Cracked"
+  },
+  {
+    "id": "cracked-19",
+    "text": "Using Decltype Auto: When is decltype(auto) most appropriate to use in C++?",
+    "options": [
+      "For perfect forwarding in template functions",
+      "To deduce parameter types in lambdas",
+      "When you want to deduce return type by value",
+      "When you need to preserve exact type including references and cv-qualifiers"
+    ],
+    "correctIndex": 3,
+    "category": "Cracked"
+  },
+  {
+    "id": "py-1",
+    "text": "Who is the creator of the Python programming language?",
+    "options": [
+      "James Gosling",
+      "Guido van Rossum",
+      "Dennis Ritchie",
+      "Bjarne Stroustrup"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-2",
+    "text": "Which programming paradigm is Python primarily designed to support, alongside Object-Oriented programming?",
+    "options": [
+      "Functional",
+      "Logical",
+      "Hardware-level",
+      "Assembly-based"
+    ],
+    "correctIndex": 0,
+    "category": "Python"
+  },
+  {
+    "id": "py-3",
+    "text": "What is the output of print(4 + 3 % 5)?",
+    "options": [
+      "2",
+      "7",
+      "4",
+      "1"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-4",
+    "text": "Which keyword is used to define a function in Python?",
+    "options": [
+      "func",
+      "define",
+      "def",
+      "function"
+    ],
+    "correctIndex": 2,
+    "category": "Python"
+  },
+  {
+    "id": "py-5",
+    "text": "What does print(type([])) output in Python 3?",
+    "options": [
+      "<class 'list'>",
+      "<type 'list'>",
+      "<class 'tuple'>",
+      "<class 'array'>"
+    ],
+    "correctIndex": 0,
+    "category": "Python"
+  },
+  {
+    "id": "py-6",
+    "text": "Which of the following syntax creates a tuple literal?",
+    "options": [
+      "[1, 2, 3]",
+      "(1, 2, 3)",
+      "{1, 2, 3}",
+      "<1, 2, 3>"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-7",
+    "text": "What is the result of \"Code\" + \"Review\"?",
+    "options": [
+      "Code Review",
+      "CodeReview",
+      "Error",
+      "Code&Review"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-8",
+    "text": "How does Python define a block of code?",
+    "options": [
+      "Curly braces {}",
+      "Indentation",
+      "Parentheses ()",
+      "Begin/End keywords"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-9",
+    "text": "What is the default value of an uninitialised boolean variable in a class instance (if standard defaults applied)?",
+    "options": [
+      "True",
+      "False",
+      "None",
+      "0"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-10",
+    "text": "Which method adds a single element to a set?",
+    "options": [
+      ".append()",
+      ".push()",
+      ".add()",
+      ".insert()"
+    ],
+    "correctIndex": 2,
+    "category": "Python"
+  },
+  {
+    "id": "py-11",
+    "text": "Which statement is true regarding Python variable names?",
+    "options": [
+      "Must start with a number",
+      "Can be of unlimited length",
+      "Must be lowercase only",
+      "Cannot contain underscores"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-12",
+    "text": "What does the // operator perform?",
+    "options": [
+      "Float division",
+      "Floor (integer) division",
+      "Exponentiation",
+      "Modulus"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-13",
+    "text": "Which indentation style is syntactically valid in Python?",
+    "options": [
+      "Mixing tabs and spaces",
+      "Consistent 4 spaces",
+      "No indentation required",
+      "Variable indentation levels"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-14",
+    "text": "Which operator is used to concatenate two strings?",
+    "options": [
+      "&",
+      ".",
+      "+",
+      "concat()"
+    ],
+    "correctIndex": 2,
+    "category": "Python"
+  },
+  {
+    "id": "py-15",
+    "text": "What is the effect of the \"continue\" statement in a loop?",
+    "options": [
+      "Terminates the loop",
+      "Skips the rest of the current iteration",
+      "Exits the program",
+      "Restarts the loop from 0"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-16",
+    "text": "Which built-in function converts a string to an integer?",
+    "options": [
+      "str()",
+      "float()",
+      "parse()",
+      "int()"
+    ],
+    "correctIndex": 3,
+    "category": "Python"
+  },
+  {
+    "id": "py-17",
+    "text": "Which of the following is NOT a core Python data type?",
+    "options": [
+      "List",
+      "Dictionary",
+      "Pointer",
+      "Set"
+    ],
+    "correctIndex": 2,
+    "category": "Python"
+  },
+  {
+    "id": "py-18",
+    "text": "What is the output of: [1, 2, 3] * 0?",
+    "options": [
+      "[0, 0, 0]",
+      "[] (Empty List)",
+      "Error",
+      "0"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-19",
+    "text": "Which keyword marks the start of a class definition?",
+    "options": [
+      "def",
+      "struct",
+      "object",
+      "class"
+    ],
+    "correctIndex": 3,
+    "category": "Python"
+  },
+  {
+    "id": "py-20",
+    "text": "What is the output of: a, b = 1, 2; a, b = b, a; print(a, b)?",
+    "options": [
+      "1 2",
+      "2 1",
+      "1 1",
+      "2 2"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-21",
+    "text": "Which collection type naturally allows duplicate elements?",
+    "options": [
+      "Set",
+      "Dictionary Keys",
+      "List",
+      "FrozenSet"
+    ],
+    "correctIndex": 2,
+    "category": "Python"
+  },
+  {
+    "id": "py-22",
+    "text": "Which statement about Python dictionaries is true?",
+    "options": [
+      "Keys can be duplicate",
+      "Keys must be immutable",
+      "Values must be unique",
+      "They are always sorted"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-23",
+    "text": "What is the time complexity to access a list element by index?",
+    "options": [
+      "O(n)",
+      "O(1)",
+      "O(log n)",
+      "O(n^2)"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-24",
+    "text": "What does the expression \"None == 0\" evaluate to?",
+    "options": [
+      "True",
+      "False",
+      "Error",
+      "None"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-25",
+    "text": "Which of the following is a valid Python identifier?",
+    "options": [
+      "2var",
+      "_var2",
+      "var-name",
+      "@name"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-26",
+    "text": "How do you create an empty tuple?",
+    "options": [
+      "{}",
+      "[]",
+      "()",
+      "empty()"
+    ],
+    "correctIndex": 2,
+    "category": "Python"
+  },
+  {
+    "id": "py-27",
+    "text": "What does print(bool(\"False\")) output?",
+    "options": [
+      "True",
+      "False",
+      "Error",
+      "None"
+    ],
+    "correctIndex": 0,
+    "category": "Python"
+  },
+  {
+    "id": "py-28",
+    "text": "How do you check the length of a list named my_list?",
+    "options": [
+      "my_list.length",
+      "len(my_list)",
+      "count(my_list)",
+      "my_list.size()"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-29",
+    "text": "Which situation raises an IndentationError?",
+    "options": [
+      "Missing colon",
+      "Mixing tabs and spaces inconsistently",
+      "Undefined variable",
+      "Division by zero"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-30",
+    "text": "What does print(10 / 4) output in Python 3?",
+    "options": [
+      "2",
+      "2.5",
+      "2.0",
+      "3"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-31",
+    "text": "Which method sorts a list in-place?",
+    "options": [
+      "sorted(list)",
+      "list.sort()",
+      "list.order()",
+      "sort(list)"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-32",
+    "text": "What is the result of bool([])?",
+    "options": [
+      "True",
+      "False",
+      "Error",
+      "None"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-33",
+    "text": "Which character starts a single-line comment?",
+    "options": [
+      "//",
+      "/*",
+      "#",
+      "--"
+    ],
+    "correctIndex": 2,
+    "category": "Python"
+  },
+  {
+    "id": "py-34",
+    "text": "Which operator is used for exponentiation?",
+    "options": [
+      "^",
+      "**",
+      "exp()",
+      "^^"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-35",
+    "text": "In \"for i in range(1, 5):\", how many times does the loop run?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-36",
+    "text": "Which syntax correctly represents logical OR?",
+    "options": [
+      "||",
+      "or",
+      "|",
+      "OR"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-37",
+    "text": "For d={\"a\":1}, what does print(\"b\" in d) output?",
+    "options": [
+      "True",
+      "False",
+      "Error",
+      "None"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-38",
+    "text": "What raises a KeyError?",
+    "options": [
+      "Accessing missing list index",
+      "Accessing missing dict key",
+      "Division by zero",
+      "Importing missing module"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-39",
+    "text": "Which context manager is best for opening files?",
+    "options": [
+      "try/catch",
+      "with statement",
+      "open/close",
+      "using"
+    ],
+    "correctIndex": 1,
+    "category": "Python"
+  },
+  {
+    "id": "py-40",
+    "text": "How do you write a multi-line comment or docstring?",
+    "options": [
+      "// ...",
+      "/* ... */",
+      "Triple quotes (\"\"\")",
+      "# ... #"
+    ],
+    "correctIndex": 2,
+    "category": "Python"
+  },
+  {
+    "id": "java-1",
+    "text": "Which keyword defines a class in Java?",
+    "options": [
+      "struct",
+      "class",
+      "object",
+      "type"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-2",
+    "text": "What is the standard entry point method signature?",
+    "options": [
+      "void main()",
+      "public static void main(String[] args)",
+      "static int main()",
+      "void start()"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-3",
+    "text": "Which of the following is NOT a primitive type?",
+    "options": [
+      "int",
+      "boolean",
+      "String",
+      "char"
+    ],
+    "correctIndex": 2,
+    "category": "Java"
+  },
+  {
+    "id": "java-4",
+    "text": "Which keyword declares a constant variable?",
+    "options": [
+      "const",
+      "static",
+      "final",
+      "immutable"
+    ],
+    "correctIndex": 2,
+    "category": "Java"
+  },
+  {
+    "id": "java-5",
+    "text": "Which modifier restricts visibility to the defining class only?",
+    "options": [
+      "public",
+      "protected",
+      "private",
+      "default"
+    ],
+    "correctIndex": 2,
+    "category": "Java"
+  },
+  {
+    "id": "java-6",
+    "text": "Which keyword is used to call a superclass constructor?",
+    "options": [
+      "this",
+      "super",
+      "parent",
+      "base"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-7",
+    "text": "Which concept is NOT considered a core pillar of OOP?",
+    "options": [
+      "Encapsulation",
+      "Recursion",
+      "Inheritance",
+      "Polymorphism"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-8",
+    "text": "How does a class use an interface?",
+    "options": [
+      "extends",
+      "uses",
+      "implements",
+      "imports"
+    ],
+    "correctIndex": 2,
+    "category": "Java"
+  },
+  {
+    "id": "java-9",
+    "text": "What is the default value of a boolean instance variable?",
+    "options": [
+      "true",
+      "false",
+      "null",
+      "0"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-10",
+    "text": "Are arrays considered objects in Java?",
+    "options": [
+      "Yes",
+      "No",
+      "Only 2D arrays",
+      "Depends on JVM"
+    ],
+    "correctIndex": 0,
+    "category": "Java"
+  },
+  {
+    "id": "java-11",
+    "text": "Method overloading implies:",
+    "options": [
+      "Same name, different parameters",
+      "Different name, same parameters",
+      "Overriding parent method",
+      "Changing return type only"
+    ],
+    "correctIndex": 0,
+    "category": "Java"
+  },
+  {
+    "id": "java-12",
+    "text": "Compile-time polymorphism is achieved via:",
+    "options": [
+      "Overriding",
+      "Overloading",
+      "Dynamic Binding",
+      "Inheritance"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-13",
+    "text": "Which syntax creates a new object?",
+    "options": [
+      "Car c = Car();",
+      "Car c = new Car();",
+      "new Car c;",
+      "Car c;"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-14",
+    "text": "What does System.out.println(10 / 3) print?",
+    "options": [
+      "3.33",
+      "3.0",
+      "3",
+      "Error"
+    ],
+    "correctIndex": 2,
+    "category": "Java"
+  },
+  {
+    "id": "java-15",
+    "text": "How do you write a single-line comment?",
+    "options": [
+      "#",
+      "//",
+      "/*",
+      "--"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-16",
+    "text": "A static method can be called:",
+    "options": [
+      "Only inside main",
+      "Without creating an instance",
+      "Only by subclasses",
+      "Only if public"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-17",
+    "text": "Which statement about constructors is true?",
+    "options": [
+      "They have a return type",
+      "They cannot be overloaded",
+      "They share the class name",
+      "They must be private"
+    ],
+    "correctIndex": 2,
+    "category": "Java"
+  },
+  {
+    "id": "java-18",
+    "text": "Encapsulation involves:",
+    "options": [
+      "Global variables",
+      "Hiding data and using methods to access it",
+      "Multiple inheritance",
+      "Direct memory access"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-19",
+    "text": "Dividing an integer by zero causes:",
+    "options": [
+      "Returns 0",
+      "Returns Infinity",
+      "ArithmeticException",
+      "Compiler Error"
+    ],
+    "correctIndex": 2,
+    "category": "Java"
+  },
+  {
+    "id": "java-20",
+    "text": "Which block executes regardless of exception occurrence?",
+    "options": [
+      "try",
+      "catch",
+      "finally",
+      "else"
+    ],
+    "correctIndex": 2,
+    "category": "Java"
+  },
+  {
+    "id": "java-21",
+    "text": "The \"==\" operator for objects compares:",
+    "options": [
+      "Memory references",
+      "Content values",
+      "Hash codes",
+      "Type only"
+    ],
+    "correctIndex": 0,
+    "category": "Java"
+  },
+  {
+    "id": "java-22",
+    "text": "Which Set implementation does NOT guarantee order?",
+    "options": [
+      "LinkedHashSet",
+      "TreeSet",
+      "HashSet",
+      "OrderedSet"
+    ],
+    "correctIndex": 2,
+    "category": "Java"
+  },
+  {
+    "id": "java-23",
+    "text": "The \"this\" keyword refers to:",
+    "options": [
+      "The parent class",
+      "The current instance",
+      "The main method",
+      "The package"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-24",
+    "text": "Which is NOT a valid loop construct?",
+    "options": [
+      "for",
+      "while",
+      "until",
+      "do-while"
+    ],
+    "correctIndex": 2,
+    "category": "Java"
+  },
+  {
+    "id": "java-25",
+    "text": "The \"break\" statement:",
+    "options": [
+      "Exits the current method",
+      "Pauses execution",
+      "Exits the immediate loop/switch",
+      "Skips one iteration"
+    ],
+    "correctIndex": 2,
+    "category": "Java"
+  },
+  {
+    "id": "java-26",
+    "text": "A final method cannot be:",
+    "options": [
+      "Overloaded",
+      "Overridden",
+      "Called",
+      "Public"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-27",
+    "text": "What is the maximum value of a signed int?",
+    "options": [
+      "2^16",
+      "2^31 - 1",
+      "2^32",
+      "2^63 - 1"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-28",
+    "text": "Are String objects immutable?",
+    "options": [
+      "Yes",
+      "No",
+      "Only if final",
+      "Depends on JVM"
+    ],
+    "correctIndex": 0,
+    "category": "Java"
+  },
+  {
+    "id": "java-29",
+    "text": "The JVM is responsible for:",
+    "options": [
+      "Compiling code",
+      "Executing bytecode",
+      "Editing code",
+      "Writing source files"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-30",
+    "text": "Which is a Checked Exception?",
+    "options": [
+      "NullPointerException",
+      "ArithmeticException",
+      "FileNotFoundException",
+      "IndexOutOfBoundsException"
+    ],
+    "correctIndex": 2,
+    "category": "Java"
+  },
+  {
+    "id": "java-31",
+    "text": "Result of System.out.println(5 + \"A\");",
+    "options": [
+      "5A",
+      "70",
+      "Error",
+      "A5"
+    ],
+    "correctIndex": 0,
+    "category": "Java"
+  },
+  {
+    "id": "java-32",
+    "text": "To sort a list of objects, they should implement:",
+    "options": [
+      "Serializable",
+      "Cloneable",
+      "Comparable",
+      "Runnable"
+    ],
+    "correctIndex": 2,
+    "category": "Java"
+  },
+  {
+    "id": "java-33",
+    "text": "A key advantage of ArrayList over arrays is:",
+    "options": [
+      "Dynamic resizing",
+      "Faster access",
+      "Multidimensional support",
+      "Less memory usage"
+    ],
+    "correctIndex": 0,
+    "category": "Java"
+  },
+  {
+    "id": "java-34",
+    "text": "To invoke a parent class method, use:",
+    "options": [
+      "this.method()",
+      "super.method()",
+      "parent.method()",
+      "base.method()"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-35",
+    "text": "Abstraction allows you to:",
+    "options": [
+      "Hide implementation details",
+      "Write faster code",
+      "Avoid classes",
+      "Use global variables"
+    ],
+    "correctIndex": 0,
+    "category": "Java"
+  },
+  {
+    "id": "java-36",
+    "text": "An interface primarily defines:",
+    "options": [
+      "Implementation code",
+      "A contract/signature",
+      "Constructor logic",
+      "Variable values"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-37",
+    "text": "Garbage Collection is responsible for:",
+    "options": [
+      "Deleting source files",
+      "Reclaiming memory from unreachable objects",
+      "Closing database connections",
+      "Sorting arrays"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-38",
+    "text": "The wrapper class for int is:",
+    "options": [
+      "Int",
+      "Integer",
+      "Number",
+      "Double"
+    ],
+    "correctIndex": 1,
+    "category": "Java"
+  },
+  {
+    "id": "java-39",
+    "text": "To declare that a method throws an exception:",
+    "options": [
+      "try",
+      "catch",
+      "throws",
+      "throw"
+    ],
+    "correctIndex": 2,
+    "category": "Java"
+  },
+  {
+    "id": "java-40",
+    "text": "Can an abstract class have a constructor?",
+    "options": [
+      "Yes",
+      "No",
+      "Only if private",
+      "Only if static"
+    ],
+    "correctIndex": 0,
+    "category": "Java"
+  },
+  {
+    "id": "os-1",
+    "text": "The primary goal of an OS is to:",
+    "options": [
+      "Compile code",
+      "Manage hardware and resources",
+      "Run antivirus",
+      "Design graphics"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-2",
+    "text": "Which is NOT a core function of the OS?",
+    "options": [
+      "Memory Management",
+      "Process Scheduling",
+      "Compiling source code",
+      "I/O Management"
+    ],
+    "correctIndex": 2,
+    "category": "OS"
+  },
+  {
+    "id": "os-3",
+    "text": "A context switch involves:",
+    "options": [
+      "Moving data to disk",
+      "Saving CPU state of a process and loading another",
+      "Shutting down",
+      "Switching users"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-4",
+    "text": "Supervisor mode (Kernel mode) allows:",
+    "options": [
+      "Restricted access",
+      "Full access to hardware/memory",
+      "User-only operations",
+      "No memory access"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-5",
+    "text": "Which scheduling algorithm uses time slices?",
+    "options": [
+      "FIFO",
+      "Shortest Job First",
+      "Round Robin",
+      "Priority"
+    ],
+    "correctIndex": 2,
+    "category": "OS"
+  },
+  {
+    "id": "os-6",
+    "text": "Virtual memory allows:",
+    "options": [
+      "Faster CPU clock",
+      "Using disk space to simulate RAM",
+      "Permanent storage",
+      "Better graphics"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-7",
+    "text": "A page fault occurs when:",
+    "options": [
+      "The printer fails",
+      "A requested page is not in RAM",
+      "The CPU overheats",
+      "A program crashes"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-8",
+    "text": "Paging divides memory into:",
+    "options": [
+      "Variable segments",
+      "Fixed-size blocks",
+      "Linked lists",
+      "Stacks"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-9",
+    "text": "Which is NOT a condition for Deadlock?",
+    "options": [
+      "Mutual Exclusion",
+      "Circular Wait",
+      "Preemption",
+      "Hold and Wait"
+    ],
+    "correctIndex": 2,
+    "category": "OS"
+  },
+  {
+    "id": "os-10",
+    "text": "To avoid deadlock, one strategy is to:",
+    "options": [
+      "Eliminate \"Hold and Wait\"",
+      "Increase RAM",
+      "Use faster CPU",
+      "Disable interrupts"
+    ],
+    "correctIndex": 0,
+    "category": "OS"
+  },
+  {
+    "id": "os-11",
+    "text": "Device drivers typically run at:",
+    "options": [
+      "User Level",
+      "Kernel Level",
+      "BIOS Level",
+      "Network Level"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-12",
+    "text": "Which is an example of an I/O device?",
+    "options": [
+      "CPU",
+      "Cache",
+      "Printer",
+      "Register"
+    ],
+    "correctIndex": 2,
+    "category": "OS"
+  },
+  {
+    "id": "os-13",
+    "text": "A process waiting for I/O is in which state?",
+    "options": [
+      "Running",
+      "Ready",
+      "Blocked/Waiting",
+      "New"
+    ],
+    "correctIndex": 2,
+    "category": "OS"
+  },
+  {
+    "id": "os-14",
+    "text": "Time-sharing systems allow:",
+    "options": [
+      "One user at a time",
+      "Multiple concurrent users/tasks",
+      "Batch processing only",
+      "No interrupts"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-15",
+    "text": "\"Thrashing\" refers to:",
+    "options": [
+      "CPU idling",
+      "Excessive paging slowing the system",
+      "Hard drive failure",
+      "Network congestion"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-16",
+    "text": "DMA (Direct Memory Access) transfers data between:",
+    "options": [
+      "CPU and Cache",
+      "I/O devices and Memory",
+      "Two CPUs",
+      "Network and Disk"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-17",
+    "text": "Separating Kernel and User mode provides:",
+    "options": [
+      "Speed",
+      "Protection/Security",
+      "Graphics support",
+      "More RAM"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-18",
+    "text": "Which policy prioritises the shortest remaining time?",
+    "options": [
+      "FCFS",
+      "SRTF",
+      "Round Robin",
+      "Priority"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-19",
+    "text": "For 4KB pages and 32-bit address, page number bits?",
+    "options": [
+      "12",
+      "20",
+      "32",
+      "10"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-20",
+    "text": "A system call is handled by:",
+    "options": [
+      "User libraries",
+      "Kernel",
+      "Hardware directly",
+      "Compiler"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-21",
+    "text": "A Zombie process is:",
+    "options": [
+      "Running forever",
+      "Terminated but entry remains in process table",
+      "Using 100% CPU",
+      "A virus"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-22",
+    "text": "Starvation means:",
+    "options": [
+      "Low priority processes never execute",
+      "No memory left",
+      "CPU is idle",
+      "Disk is empty"
+    ],
+    "correctIndex": 0,
+    "category": "OS"
+  },
+  {
+    "id": "os-23",
+    "text": "Page replacement algorithms operate when:",
+    "options": [
+      "CPU is fast",
+      "Memory is full and a new page is needed",
+      "System starts",
+      "Disk is full"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-24",
+    "text": "Best-fit and First-fit are strategies for:",
+    "options": [
+      "CPU Scheduling",
+      "Memory Allocation",
+      "Disk Seek",
+      "Network Routing"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-25",
+    "text": "A cache hit implies:",
+    "options": [
+      "Data was found in the cache",
+      "Data was missing",
+      "System crash",
+      "Disk error"
+    ],
+    "correctIndex": 0,
+    "category": "OS"
+  },
+  {
+    "id": "os-26",
+    "text": "Contiguous allocation stores files as:",
+    "options": [
+      "Linked blocks",
+      "Adjacent blocks",
+      "Indexed blocks",
+      "Random blocks"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-27",
+    "text": "A Microkernel architecture is:",
+    "options": [
+      "Monolithic",
+      "Modular/Minimal",
+      "Single-tasking",
+      "BIOS-based"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-28",
+    "text": "Which is NOT a standard UNIX file permission?",
+    "options": [
+      "Read",
+      "Write",
+      "Execute",
+      "Delete"
+    ],
+    "correctIndex": 3,
+    "category": "OS"
+  },
+  {
+    "id": "os-29",
+    "text": "External fragmentation is caused by:",
+    "options": [
+      "Paging",
+      "Allocating/freeing variable size blocks",
+      "CPU scheduling",
+      "Virtual memory"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-30",
+    "text": "A Monitor in concurrency is:",
+    "options": [
+      "A screen",
+      "A high-level synchronisation construct",
+      "A thread",
+      "A process"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-31",
+    "text": "Segmentation differs from Paging by using:",
+    "options": [
+      "Fixed size blocks",
+      "Variable size logical segments",
+      "Physical addresses only",
+      "No memory"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-32",
+    "text": "The time quantum in Round Robin should be:",
+    "options": [
+      "Infinite",
+      "Responsive (not too large, not too small)",
+      "Zero",
+      "Equal to process size"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-33",
+    "text": "Routing is handled by which OSI layer?",
+    "options": [
+      "Data Link",
+      "Network",
+      "Transport",
+      "Session"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-34",
+    "text": "Interrupts in protected mode are:",
+    "options": [
+      "Ignored",
+      "Handled via IDT/Kernel",
+      "Always disabled",
+      "User-managed"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-35",
+    "text": "A PCB (Process Control Block) contains:",
+    "options": [
+      "Source code",
+      "Registers, State, PID",
+      "Disk files",
+      "User passwords"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-36",
+    "text": "Which scheduler minimizes average wait time?",
+    "options": [
+      "FCFS",
+      "SJF",
+      "Priority",
+      "Round Robin"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-37",
+    "text": "Sectors and Tracks are terms related to:",
+    "options": [
+      "RAM",
+      "Hard Disk Drives",
+      "CPU",
+      "Network"
+    ],
+    "correctIndex": 1,
+    "category": "OS"
+  },
+  {
+    "id": "os-38",
+    "text": "Busy waiting is inefficient because:",
+    "options": [
+      "It consumes CPU cycles doing nothing",
+      "It uses too much RAM",
+      "It crashes the OS",
+      "It is too slow"
+    ],
+    "correctIndex": 0,
+    "category": "OS"
+  },
+  {
+    "id": "os-39",
+    "text": "In two-level paging, the address is split into:",
+    "options": [
+      "1 part",
+      "2 parts",
+      "3 parts (Dir, Table, Offset)",
+      "4 parts"
+    ],
+    "correctIndex": 2,
+    "category": "OS"
+  },
+  {
+    "id": "os-40",
+    "text": "A user-level thread library acts as a:",
+    "options": [
+      "Local scheduler",
+      "Global scheduler",
+      "Kernel module",
+      "Hardware interrupt"
+    ],
+    "correctIndex": 0,
+    "category": "OS"
+  },
+  {
+    "id": "net-1",
+    "text": "A computer network is primarily:",
+    "options": [
+      "A CPU cluster",
+      "An interconnection of computers",
+      "A single mainframe",
+      "A database"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-2",
+    "text": "The Internet is best described as:",
+    "options": [
+      "A single LAN",
+      "A global network of networks",
+      "A web browser",
+      "A server"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-3",
+    "text": "Bluetooth is a type of:",
+    "options": [
+      "WAN",
+      "PAN (Personal Area Network)",
+      "LAN",
+      "MAN"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-4",
+    "text": "An overlay network is built on top of:",
+    "options": [
+      "Another network",
+      "The CPU",
+      "A single cable",
+      "Bluetooth"
+    ],
+    "correctIndex": 0,
+    "category": "Networking"
+  },
+  {
+    "id": "net-5",
+    "text": "OSI stands for:",
+    "options": [
+      "Open Source Internet",
+      "Open Systems Interconnection",
+      "Operating System Interface",
+      "Online Service Interact"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-6",
+    "text": "In a distributed system, resources appear to be:",
+    "options": [
+      "Separate",
+      "A single coherent system",
+      "Offline",
+      "Broken"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-7",
+    "text": "How many layers are in the OSI model?",
+    "options": [
+      "4",
+      "5",
+      "7",
+      "9"
+    ],
+    "correctIndex": 2,
+    "category": "Networking"
+  },
+  {
+    "id": "net-8",
+    "text": "End devices like laptops are called:",
+    "options": [
+      "Routers",
+      "Hosts/Nodes",
+      "Switches",
+      "Hubs"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-9",
+    "text": "The Network Layer is responsible for:",
+    "options": [
+      "Physical cables",
+      "Routing and Logical Addressing",
+      "Application UI",
+      "Dialog control"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-10",
+    "text": "Multiplexing allows:",
+    "options": [
+      "One signal only",
+      "Multiple signals on one medium",
+      "Unlimited bandwidth",
+      "Zero latency"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-11",
+    "text": "Which device forwards packets between different networks?",
+    "options": [
+      "Hub",
+      "Switch",
+      "Router",
+      "Repeater"
+    ],
+    "correctIndex": 2,
+    "category": "Networking"
+  },
+  {
+    "id": "net-12",
+    "text": "A network socket is an endpoint for:",
+    "options": [
+      "Power",
+      "Process communication",
+      "Storage",
+      "Graphics"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-13",
+    "text": "Communication protocols define:",
+    "options": [
+      "Hardware specs",
+      "Rules for data exchange",
+      "User passwords",
+      "Cable length"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-14",
+    "text": "Which layer encapsulates packets into frames?",
+    "options": [
+      "Network",
+      "Data Link",
+      "Physical",
+      "Transport"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-15",
+    "text": "Which is a network infrastructure device (core), not an edge?",
+    "options": [
+      "Laptop",
+      "Smartphone",
+      "Switch",
+      "Webcam"
+    ],
+    "correctIndex": 2,
+    "category": "Networking"
+  },
+  {
+    "id": "net-16",
+    "text": "Broadcast transmission sends data to:",
+    "options": [
+      "One node",
+      "Selected nodes",
+      "All nodes on the network",
+      "The router only"
+    ],
+    "correctIndex": 2,
+    "category": "Networking"
+  },
+  {
+    "id": "net-17",
+    "text": "Which topology uses a single shared backbone cable?",
+    "options": [
+      "Star",
+      "Bus",
+      "Ring",
+      "Mesh"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-18",
+    "text": "The DNS system is:",
+    "options": [
+      "Centralized",
+      "Distributed",
+      "Local only",
+      "Static"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-19",
+    "text": "In IDS, a signature refers to:",
+    "options": [
+      "User name",
+      "Attack pattern definition",
+      "Encryption key",
+      "IP address"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-20",
+    "text": "Gigabit Ethernet speeds are around:",
+    "options": [
+      "10 Mbps",
+      "100 Mbps",
+      "1000 Mbps",
+      "10 Gbps"
+    ],
+    "correctIndex": 2,
+    "category": "Networking"
+  },
+  {
+    "id": "net-21",
+    "text": "VPN stands for:",
+    "options": [
+      "Virtual Public Network",
+      "Virtual Private Network",
+      "Verified Private Node",
+      "Visual Protocol Network"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-22",
+    "text": "Process-to-process delivery is handled by:",
+    "options": [
+      "Network Layer",
+      "Transport Layer",
+      "Physical Layer",
+      "Data Link Layer"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-23",
+    "text": "In Virtual Circuits, packets carry:",
+    "options": [
+      "Full destination address",
+      "VC Identifier (VCID)",
+      "Source IP only",
+      "No header"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-24",
+    "text": "A network within a building is typically a:",
+    "options": [
+      "WAN",
+      "LAN",
+      "MAN",
+      "PAN"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-25",
+    "text": "The precursor to the modern Internet was:",
+    "options": [
+      "ARPANET",
+      "Ethernet",
+      "NSFNET",
+      "Intranet"
+    ],
+    "correctIndex": 0,
+    "category": "Networking"
+  },
+  {
+    "id": "net-26",
+    "text": "The core protocol of the Internet Network Layer is:",
+    "options": [
+      "TCP",
+      "HTTP",
+      "IP",
+      "FTP"
+    ],
+    "correctIndex": 2,
+    "category": "Networking"
+  },
+  {
+    "id": "net-27",
+    "text": "Which topology connects all nodes to a central hub?",
+    "options": [
+      "Bus",
+      "Ring",
+      "Star",
+      "Mesh"
+    ],
+    "correctIndex": 2,
+    "category": "Networking"
+  },
+  {
+    "id": "net-28",
+    "text": "4000 frames/sec at 8 bits each equals:",
+    "options": [
+      "32 kbps",
+      "32 Mbps",
+      "4 kbps",
+      "400 bps"
+    ],
+    "correctIndex": 0,
+    "category": "Networking"
+  },
+  {
+    "id": "net-29",
+    "text": "A device storing shared files for a LAN is a:",
+    "options": [
+      "Router",
+      "File Server",
+      "Switch",
+      "Modem"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-30",
+    "text": "Simplex communication allows data flow in:",
+    "options": [
+      "One direction only",
+      "Both directions simultaneously",
+      "Both directions, one at a time",
+      "Random directions"
+    ],
+    "correctIndex": 0,
+    "category": "Networking"
+  },
+  {
+    "id": "net-31",
+    "text": "Which layer interacts directly with user applications?",
+    "options": [
+      "Transport",
+      "Application",
+      "Session",
+      "Presentation"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-32",
+    "text": "To access the Internet, you typically need an:",
+    "options": [
+      "ISP",
+      "LAN only",
+      "Ethernet cable only",
+      "HTML file"
+    ],
+    "correctIndex": 0,
+    "category": "Networking"
+  },
+  {
+    "id": "net-33",
+    "text": "Which protocol is used for remote command-line access (unsecured)?",
+    "options": [
+      "HTTP",
+      "Telnet",
+      "FTP",
+      "SMTP"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-34",
+    "text": "A DoS attack aims to:",
+    "options": [
+      "Steal data",
+      "Make a resource unavailable",
+      "Encrypt files",
+      "Monitor traffic"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-35",
+    "text": "Standard HTTP traffic uses port:",
+    "options": [
+      "21",
+      "443",
+      "80",
+      "25"
+    ],
+    "correctIndex": 2,
+    "category": "Networking"
+  },
+  {
+    "id": "net-36",
+    "text": "DNS maps domain names to:",
+    "options": [
+      "MAC Addresses",
+      "IP Addresses",
+      "Port numbers",
+      "User IDs"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-37",
+    "text": "MAC addresses operate at which layer?",
+    "options": [
+      "Physical",
+      "Data Link",
+      "Network",
+      "Transport"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-38",
+    "text": "TCP provides reliability via:",
+    "options": [
+      "Best-effort delivery",
+      "Handshakes and Acknowledgments",
+      "Broadcasting",
+      "Faster cables"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-39",
+    "text": "Which is a Transport Layer protocol?",
+    "options": [
+      "IP",
+      "TCP",
+      "HTTP",
+      "Ethernet"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "net-40",
+    "text": "IP addresses are:",
+    "options": [
+      "Physical hardware addresses",
+      "Logical network addresses",
+      "Permanent identifiers",
+      "Layer 2 addresses"
+    ],
+    "correctIndex": 1,
+    "category": "Networking"
+  },
+  {
+    "id": "sys-1",
+    "text": "CAP Theorem stands for:",
+    "options": [
+      "Consistency, Availability, Partition Tolerance",
+      "Consistency, Accuracy, Performance",
+      "Capacity, Availability, Protocol",
+      "Compute, Access, Power"
+    ],
+    "correctIndex": 0,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-2",
+    "text": "Vertical Scaling involves:",
+    "options": [
+      "Adding more machines",
+      "Adding power (CPU/RAM) to an existing machine",
+      "Splitting the database",
+      "Adding a load balancer"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-3",
+    "text": "Horizontal Scaling involves:",
+    "options": [
+      "Upgrading the CPU",
+      "Adding more servers to the pool",
+      " increasing disk size",
+      "Optimising code"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-4",
+    "text": "A Load Balancer is used to:",
+    "options": [
+      "Encrypt traffic",
+      "Distribute traffic across multiple servers",
+      "Store database records",
+      "Compile code"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-5",
+    "text": "Microservices architecture promotes:",
+    "options": [
+      "Tightly coupled components",
+      "Decoupling into small independent services",
+      "Single monolithic codebase",
+      "Shared global state"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-6",
+    "text": "A Monolithic architecture typically has:",
+    "options": [
+      "Distributed services",
+      "Single unified process/codebase",
+      "No database",
+      "Serverless functions"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-7",
+    "text": "Database replication is primarily for:",
+    "options": [
+      "Making backups only",
+      "Fault tolerance and read scalability",
+      "Write speed",
+      "Reducing storage"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-8",
+    "text": "Which pattern ensures a single instance of a class?",
+    "options": [
+      "Factory",
+      "Singleton",
+      "Observer",
+      "Builder"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-9",
+    "text": "Sharding a database means:",
+    "options": [
+      "Backing it up",
+      "Partitioning data horizontally across nodes",
+      "Indexing it",
+      "Compressing it"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-10",
+    "text": "A CDN (Content Delivery Network) is best for:",
+    "options": [
+      "Dynamic API logic",
+      "Serving static assets from edge locations",
+      "Database writes",
+      "User authentication"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-11",
+    "text": "Standard SQL databases typically prioritise (in CAP terms):",
+    "options": [
+      "AP",
+      "CA",
+      "CP",
+      "None"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-12",
+    "text": "MongoDB defaults to which CAP characteristics?",
+    "options": [
+      "CA",
+      "CP (Consistency, Partition Tolerance)",
+      "AP",
+      "All three"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-13",
+    "text": "To reduce load on a database for read-heavy apps, use:",
+    "options": [
+      "More indexes only",
+      "Caching (e.g., Redis)",
+      "Larger hard drives",
+      "Complex joins"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-14",
+    "text": "Services are often split by:",
+    "options": [
+      "Alphabetical order",
+      "Business Capability / Domain",
+      "File size",
+      "Randomly"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-15",
+    "text": "Cassandra is chosen for:",
+    "options": [
+      "ACID transactions",
+      "High Availability and Scalability (AP)",
+      "Complex SQL joins",
+      "Low disk usage"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-16",
+    "text": "Message Queues (RabbitMQ, Kafka) help with:",
+    "options": [
+      "Tight coupling",
+      "Asynchronous decoupling",
+      "Synchronous blocking",
+      "Database storage"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-17",
+    "text": "A Service Registry tracks:",
+    "options": [
+      "User passwords",
+      "Locations/IPs of active services",
+      "Source code versions",
+      "Error logs"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-18",
+    "text": "REST APIs are designed to be:",
+    "options": [
+      "Stateful",
+      "Stateless",
+      "Connection-oriented",
+      "Session-based"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-19",
+    "text": "Horizontal partitioning is synonymous with:",
+    "options": [
+      "Normalization",
+      "Sharding",
+      "Indexing",
+      "Vertical Scaling"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-20",
+    "text": "Eventual Consistency guarantees:",
+    "options": [
+      "Instant updates",
+      "Data will converge to a consistent state over time",
+      "Data is never consistent",
+      "Writes fail often"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-21",
+    "text": "Large user uploads (images/video) should be stored in:",
+    "options": [
+      "The database directly (BLOB)",
+      "Object Storage (e.g., S3)",
+      "The web server RAM",
+      "Cookies"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-22",
+    "text": "Rate Limiting is used to:",
+    "options": [
+      "Speed up requests",
+      "Prevent abuse/overload by limiting requests",
+      "Encrypt data",
+      "Cache content"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-23",
+    "text": "Mobile app design often requires:",
+    "options": [
+      "Always-online assumption",
+      "Offline capability/caching",
+      "Heavy server-side rendering",
+      "No API usage"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-24",
+    "text": "Distributed locks can be managed by:",
+    "options": [
+      "Local mutex",
+      "Coordination service (Zookeeper/Redis)",
+      "Text files",
+      "DNS"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-25",
+    "text": "Why is CA (Consistency + Availability) hard in distributed systems?",
+    "options": [
+      "Network Partitions are inevitable",
+      "Computers are slow",
+      "Software is buggy",
+      "Databases are expensive"
+    ],
+    "correctIndex": 0,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-26",
+    "text": "ACID is to SQL as BASE is to:",
+    "options": [
+      "NoSQL / Distributed Systems",
+      "Compilers",
+      "Networking",
+      "Operating Systems"
+    ],
+    "correctIndex": 0,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-27",
+    "text": "Polymorphism in design implies:",
+    "options": [
+      "One interface, many implementations",
+      "Many interfaces, one class",
+      "Encryption",
+      "Compression"
+    ],
+    "correctIndex": 0,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-28",
+    "text": "Choose NoSQL when:",
+    "options": [
+      "Schema is rigid",
+      "Data is unstructured/flexible and scale is high",
+      "Complex transactions needed",
+      "Small dataset"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-29",
+    "text": "DNS Round Robin is a simple form of:",
+    "options": [
+      "Encryption",
+      "Load Balancing",
+      "Database Sharding",
+      "Authentication"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-30",
+    "text": "Microservices commonly communicate via:",
+    "options": [
+      "Shared memory",
+      "HTTP/REST or gRPC",
+      "Direct DB access",
+      "Global variables"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-31",
+    "text": "SOA vs Microservices difference?",
+    "options": [
+      "SOA is newer",
+      "Microservices are more granular",
+      "SOA uses no network",
+      "They are identical"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-32",
+    "text": "In \"Eventual Consistency\", reads may return:",
+    "options": [
+      "Stale data temporarily",
+      "Errors",
+      "Nothing",
+      "Future data"
+    ],
+    "correctIndex": 0,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-33",
+    "text": "CQRS stands for:",
+    "options": [
+      "Command Query Responsibility Segregation",
+      "Common Query Resource Standard",
+      "Create Query Read Save",
+      "Complex Query Remote Service"
+    ],
+    "correctIndex": 0,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-34",
+    "text": "Consistent Hashing minimizes:",
+    "options": [
+      "Key remapping when nodes change",
+      "Disk usage",
+      "CPU usage",
+      "Network latency"
+    ],
+    "correctIndex": 0,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-35",
+    "text": "\"Polymorphic DNS\" usually refers to:",
+    "options": [
+      "Dynamic IP switching",
+      "Round-robin/Intelligent routing",
+      "Encrypted DNS",
+      "Localhost"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-36",
+    "text": "Refactoring Monolith to Microservices typically involves:",
+    "options": [
+      "Identifying Domains (DDD)",
+      "Rewriting in Assembly",
+      "Using one database",
+      "Merging code"
+    ],
+    "correctIndex": 0,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-37",
+    "text": "An API Gateway acts as:",
+    "options": [
+      "A database",
+      "A single entry point for routing/auth",
+      "A firewall only",
+      "A compiler"
+    ],
+    "correctIndex": 1,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-38",
+    "text": "The Circuit Breaker pattern:",
+    "options": [
+      "Stops calls to failing services",
+      "Increases load",
+      "Breaks the build",
+      "Deletes data"
+    ],
+    "correctIndex": 0,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-39",
+    "text": "Replication vs Sharding:",
+    "options": [
+      "Copying vs Partitioning",
+      "Partitioning vs Copying",
+      "Same thing",
+      "Deleting vs Saving"
+    ],
+    "correctIndex": 0,
+    "category": "System Design"
+  },
+  {
+    "id": "sys-40",
+    "text": "Vertical vs Horizontal Partitioning:",
+    "options": [
+      "By Column vs By Row",
+      "By Row vs By Column",
+      "By Table vs By DB",
+      "By Disk vs By RAM"
+    ],
+    "correctIndex": 0,
+    "category": "System Design"
+  },
+  {
+    "id": "ds-1",
+    "text": "Data science primarily focuses on:",
+    "options": [
+      "Hardware repair",
+      "Analysing and interpreting data",
+      "Building websites",
+      "Installing OS"
+    ],
+    "correctIndex": 1,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-2",
+    "text": "Key Data Science skills include:",
+    "options": [
+      "Carpentry",
+      "Stats, ML, and Visualisation",
+      "Cooking",
+      "Plumbing"
+    ],
+    "correctIndex": 1,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-3",
+    "text": "Which is NOT a standard type of Machine Learning?",
+    "options": [
+      "Supervised",
+      "Unsupervised",
+      "Computational",
+      "Reinforcement"
+    ],
+    "correctIndex": 2,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-4",
+    "text": "Which \"V\" of Big Data refers to data types?",
+    "options": [
+      "Volume",
+      "Velocity",
+      "Variety",
+      "Veracity"
+    ],
+    "correctIndex": 2,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-5",
+    "text": "Good experimental practice includes:",
+    "options": [
+      "Guessing",
+      "Replication and Control",
+      "Ignoring outliers",
+      "Using one sample"
+    ],
+    "correctIndex": 1,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-6",
+    "text": "Feature Engineering is:",
+    "options": [
+      "Buying features",
+      "Transforming raw data into model inputs",
+      "Deleting data",
+      "Designing UIs"
+    ],
+    "correctIndex": 1,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-7",
+    "text": "Which language is dominant in Data Science?",
+    "options": [
+      "C++",
+      "Python/R",
+      "Java",
+      "Assembly"
+    ],
+    "correctIndex": 1,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-8",
+    "text": "A data pipeline transforms:",
+    "options": [
+      "Raw data to Analytic data",
+      "Gold to Silver",
+      "Code to Binary",
+      "Electricity"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-9",
+    "text": "Standardisation/Normalisation is a form of:",
+    "options": [
+      "Preprocessing",
+      "Postprocessing",
+      "Visualization",
+      "Storage"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-10",
+    "text": "The first step in analysis is typically:",
+    "options": [
+      "Defining the Question",
+      "Running a Model",
+      "Visualising",
+      "Deploying"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-11",
+    "text": "Supervised Learning requires:",
+    "options": [
+      "Labeled Data",
+      "Unlabeled Data",
+      "No Data",
+      "Random Data"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-12",
+    "text": "Train-Test split is used to:",
+    "options": [
+      "Clean data",
+      "Evaluate Generalisation",
+      "Increase size",
+      "Fix bugs"
+    ],
+    "correctIndex": 1,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-13",
+    "text": "Predictive modelling is a task of:",
+    "options": [
+      "Machine Learning",
+      "Data Entry",
+      "Web Design",
+      "Networking"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-14",
+    "text": "A common data visualisation tool is:",
+    "options": [
+      "Notepad",
+      "Tableau/Matplotlib",
+      "Compiler",
+      "Debugger"
+    ],
+    "correctIndex": 1,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-15",
+    "text": "Unstructured data includes:",
+    "options": [
+      "SQL Tables",
+      "Text and Images",
+      "Excel Sheets",
+      "CSV"
+    ],
+    "correctIndex": 1,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-16",
+    "text": "Big Data is characterised by:",
+    "options": [
+      "Small tables",
+      "Complexity/Scale",
+      "Single file",
+      "Manual entry"
+    ],
+    "correctIndex": 1,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-17",
+    "text": "A Data Scientist must:",
+    "options": [
+      "Just code",
+      "Understand domain & stats",
+      "Fix printers",
+      "Manage cables"
+    ],
+    "correctIndex": 1,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-18",
+    "text": "It is important to keep track of:",
+    "options": [
+      "Data Processing Steps",
+      "Office hours",
+      "Coffee breaks",
+      "Mouse clicks"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-19",
+    "text": "Before analysing, you should:",
+    "options": [
+      "Know the objective",
+      "Buy a new PC",
+      "Delete the data",
+      "Guess the result"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-20",
+    "text": "EDA stands for:",
+    "options": [
+      "Exploratory Data Analysis",
+      "Easy Data Access",
+      "Encrypted Data Algorithm",
+      "Error Detection Array"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-21",
+    "text": "Boosting is a technique for:",
+    "options": [
+      "Improving model accuracy (Ensemble)",
+      "Increasing internet speed",
+      "Overclocking CPU",
+      "Cleaning disks"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-22",
+    "text": "Predictive analytics focuses on:",
+    "options": [
+      "Forecasting future outcomes",
+      "Describing the past",
+      "Storing data",
+      "Debugging"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-23",
+    "text": "After acquiring data, one must:",
+    "options": [
+      "Clean/Scrub it",
+      "Ignore it",
+      "Print it",
+      "Sell it"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-24",
+    "text": "\"Data Dredging\" implies:",
+    "options": [
+      "Fishing for spurious patterns",
+      "Deep cleaning",
+      "Mining gold",
+      "Validating hypotheses"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-25",
+    "text": "Raw data is:",
+    "options": [
+      "Unprocessed",
+      "Cooked",
+      "Summarised",
+      "Visualised"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-26",
+    "text": "A Pandas DataFrame is similar to:",
+    "options": [
+      "A Table/Spreadsheet",
+      "A Word doc",
+      "A JPG image",
+      "A Music file"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-27",
+    "text": "Transactional data (POS) is often:",
+    "options": [
+      "Raw source data",
+      "Aggregated report",
+      "Clean",
+      "Small"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-28",
+    "text": "\"Tidy Data\" means:",
+    "options": [
+      "Variables in columns, Observations in rows",
+      "Messy format",
+      "Random structure",
+      "Zipped files"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-29",
+    "text": "If features have vastly different scales, you should:",
+    "options": [
+      "Scale/Normalise them",
+      "Delete them",
+      "Ignore it",
+      "Duplicate them"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-30",
+    "text": "Cross-validation estimates:",
+    "options": [
+      "Model performance on unseen data",
+      "Training time",
+      "RAM usage",
+      "Disk space"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-31",
+    "text": "Which is a Supervised algorithm?",
+    "options": [
+      "K-Means",
+      "SVM (Support Vector Machine)",
+      "Apriori",
+      "PCA"
+    ],
+    "correctIndex": 1,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-32",
+    "text": "Which is an Unsupervised algorithm?",
+    "options": [
+      "Linear Regression",
+      "K-Means Clustering",
+      "Logistic Regression",
+      "Naive Bayes"
+    ],
+    "correctIndex": 1,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-33",
+    "text": "Overfitting means the model:",
+    "options": [
+      "Fits noise/training data too closely",
+      "Is too simple",
+      "Works perfectly",
+      "Is too slow"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-34",
+    "text": "A Confusion Matrix shows:",
+    "options": [
+      "True/False Positives/Negatives",
+      "CPU usage",
+      "Memory leaks",
+      "Code errors"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-35",
+    "text": "Precision is calculated as:",
+    "options": [
+      "TP / (TP + FP)",
+      "TP / (TP + FN)",
+      "TP / Total",
+      "FP / TN"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-36",
+    "text": "ROC curve plots:",
+    "options": [
+      "TPR vs FPR",
+      "Precision vs Recall",
+      "Loss vs Epoch",
+      "Accuracy vs Time"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-37",
+    "text": "High Bias typically leads to:",
+    "options": [
+      "Underfitting",
+      "Overfitting",
+      "Perfect fit",
+      "High variance"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-38",
+    "text": "Regularisation (L1/L2) prevents:",
+    "options": [
+      "Overfitting",
+      "Underfitting",
+      "Training",
+      "Compilation"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-39",
+    "text": "Gradient Descent aims to:",
+    "options": [
+      "Maximise Error",
+      "Minimise Loss Function",
+      "Sort data",
+      "Shuffle data"
+    ],
+    "correctIndex": 1,
+    "category": "Data Science"
+  },
+  {
+    "id": "ds-40",
+    "text": "K-Fold Cross Validation involves:",
+    "options": [
+      "Splitting data into k subsets",
+      "Using k models",
+      "Multiplying by k",
+      "Deleting k rows"
+    ],
+    "correctIndex": 0,
+    "category": "Data Science"
+  },
+  {
+    "id": "web-1",
+    "text": "Which HTML tag creates a hyperlink?",
+    "options": [
+      "<link>",
+      "<a>",
+      "<href>",
+      "<url>"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-2",
+    "text": "To include external CSS, use:",
+    "options": [
+      "<style src>",
+      "<link rel=\"stylesheet\">",
+      "<css>",
+      "<script>"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-3",
+    "text": "The CSS property \"color\" changes:",
+    "options": [
+      "Background colour",
+      "Text colour",
+      "Border colour",
+      "Shadow colour"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-4",
+    "text": "Which tag defines a generic division?",
+    "options": [
+      "<span>",
+      "<div>",
+      "<section>",
+      "<p>"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-5",
+    "text": "To make an element 50% transparent:",
+    "options": [
+      "opacity: 0.5",
+      "visiblity: 50%",
+      "color: half",
+      "filter: alpha"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-6",
+    "text": "Which tag embeds an image?",
+    "options": [
+      "<picture>",
+      "<img>",
+      "<image>",
+      "<src>"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-7",
+    "text": "\"float: left\" does what?",
+    "options": [
+      "Moves element left, wrapping text",
+      "Hides it",
+      "Centers it",
+      "Moves it up"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-8",
+    "text": "The \"rem\" unit is relative to:",
+    "options": [
+      "Parent",
+      "Viewport",
+      "Root element font-size",
+      "Pixel"
+    ],
+    "correctIndex": 2,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-9",
+    "text": "Which selector targets class \"header\"?",
+    "options": [
+      "#header",
+      ".header",
+      "header",
+      "*header"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-10",
+    "text": "The attribute for image source is:",
+    "options": [
+      "href",
+      "src",
+      "link",
+      "path"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-11",
+    "text": "To hide an element but keep its space:",
+    "options": [
+      "display: none",
+      "visibility: hidden",
+      "opacity: 0",
+      "z-index: -1"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-12",
+    "text": "An Ordered List uses:",
+    "options": [
+      "<ul>",
+      "<ol>",
+      "<dl>",
+      "<list>"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-13",
+    "text": "\"position: absolute\" is relative to:",
+    "options": [
+      "The viewport",
+      "Nearest positioned ancestor",
+      "The document",
+      "Always the body"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-14",
+    "text": "Correct Table structure:",
+    "options": [
+      "<table><tr><td>",
+      "<table><row><col>",
+      "<table><t><d>",
+      "<table><grid>"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-15",
+    "text": "Property for border thickness:",
+    "options": [
+      "border-width",
+      "border-size",
+      "border-fat",
+      "thickness"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-16",
+    "text": "To make text bold:",
+    "options": [
+      "font-style: bold",
+      "font-weight: bold",
+      "text-decoration: bold",
+      "font: thick"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-17",
+    "text": "Include external JS:",
+    "options": [
+      "<js>",
+      "<script src=\"...\">",
+      "<link script>",
+      "<import>"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-18",
+    "text": "DOM stands for:",
+    "options": [
+      "Document Object Model",
+      "Data Object Mode",
+      "Disk Operating Method",
+      "Digital Output Mechanism"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-19",
+    "text": "JavaScript is primarily:",
+    "options": [
+      "Compiled",
+      "Interpreted / JIT",
+      "Assembly",
+      "Binary"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-20",
+    "text": "<script> defaults to which language?",
+    "options": [
+      "Java",
+      "JavaScript",
+      "Python",
+      "C#"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-21",
+    "text": "Conditional comments were used for:",
+    "options": [
+      "Chrome",
+      "Old Internet Explorer (IE)",
+      "Firefox",
+      "Safari"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-22",
+    "text": "<meta charset=\"UTF-8\"> defines:",
+    "options": [
+      "Character Encoding",
+      "Page Title",
+      "Viewport",
+      "Language"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-23",
+    "text": "Select element by ID in JS:",
+    "options": [
+      "getElement(\"id\")",
+      "getElementById(\"id\")",
+      "select(\"#id\")",
+      "query(\"id\")"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-24",
+    "text": "To enable Flexbox:",
+    "options": [
+      "display: flex",
+      "position: flex",
+      "float: flex",
+      "flex: true"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-25",
+    "text": "Semantic tag for navigation:",
+    "options": [
+      "<div id=\"nav\">",
+      "<nav>",
+      "<navigation>",
+      "<menu>"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-26",
+    "text": "\"margin: 0 auto\" centers a block if:",
+    "options": [
+      "It has a width",
+      "It is inline",
+      "It is absolute",
+      "It is huge"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-27",
+    "text": "<canvas> is used for:",
+    "options": [
+      "Database",
+      "Drawing Graphics via Script",
+      "Video",
+      "Audio"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-28",
+    "text": "AJAX involves:",
+    "options": [
+      "Async JS and XML/JSON",
+      "Sync Java",
+      "ActiveX",
+      "Apple Java"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-29",
+    "text": "REST usually runs over:",
+    "options": [
+      "FTP",
+      "HTTP",
+      "SMTP",
+      "SSH"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-30",
+    "text": "Status 404 means:",
+    "options": [
+      "OK",
+      "Not Found",
+      "Server Error",
+      "Forbidden"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-31",
+    "text": "HTTPS \"S\" stands for:",
+    "options": [
+      "Speed",
+      "Secure (SSL/TLS)",
+      "Simple",
+      "Standard"
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-32",
+    "text": "@media queries support:",
+    "options": [
+      "Responsive Design",
+      "Database queries",
+      "Print jobs",
+      "Audio settings"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-33",
+    "text": "To enable CSS Grid:",
+    "options": [
+      "display: grid",
+      "grid: on",
+      "layout: grid",
+      "position: grid"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-34",
+    "text": "Form data is sent to the URL in:",
+    "options": [
+      "action attribute",
+      "method attribute",
+      "target attribute",
+      "name attribute"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-35",
+    "text": "Which value is \"truthy\" in JS?",
+    "options": [
+      "0",
+      "false",
+      "\"\"",
+      "[] (empty array)"
+    ],
+    "correctIndex": 3,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-36",
+    "text": "=== vs ==:",
+    "options": [
+      "Strict vs Loose equality",
+      "Same thing",
+      "Assignment vs Equality",
+      "Not used"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-37",
+    "text": "typeof null returns:",
+    "options": [
+      "\"null\"",
+      "\"object\"",
+      "\"undefined\"",
+      "\"0\""
+    ],
+    "correctIndex": 1,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-38",
+    "text": "JS is event-driven, meaning:",
+    "options": [
+      "It waits for user actions",
+      "It runs linearly only",
+      "It ignores user",
+      "It has no functions"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-39",
+    "text": "SASS and LESS are:",
+    "options": [
+      "CSS Preprocessors",
+      "JS Frameworks",
+      "Databases",
+      "Browsers"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "web-40",
+    "text": "<script defer>:",
+    "options": [
+      "Runs script after HTML parsing",
+      "Runs immediately",
+      "Runs before HTML",
+      "Blocks parsing"
+    ],
+    "correctIndex": 0,
+    "category": "Web Dev"
+  },
+  {
+    "id": "cs-1",
+    "text": "Best structure for LRU Cache:",
+    "options": [
+      "Stack",
+      "Queue",
+      "HashMap + Doubly Linked List",
+      "BST"
+    ],
+    "correctIndex": 2,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-2",
+    "text": "Search time in Balanced BST:",
+    "options": [
+      "O(n)",
+      "O(log n)",
+      "O(1)",
+      "O(n^2)"
+    ],
+    "correctIndex": 1,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-3",
+    "text": "Which O(n^2) sort is stable?",
+    "options": [
+      "Bubble Sort",
+      "Quick Sort",
+      "Heap Sort",
+      "Selection Sort"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-4",
+    "text": "Which is a programming technique, not a pillar of OOP?",
+    "options": [
+      "Recursion",
+      "Encapsulation",
+      "Inheritance",
+      "Polymorphism"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-5",
+    "text": "SQL command to delete table and data:",
+    "options": [
+      "DELETE",
+      "DROP",
+      "REMOVE",
+      "ERASE"
+    ],
+    "correctIndex": 1,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-6",
+    "text": "int x=5; print(x++); output?",
+    "options": [
+      "5",
+      "6",
+      "4",
+      "Error"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-7",
+    "text": "Average Hash Table lookup:",
+    "options": [
+      "O(n)",
+      "O(1)",
+      "O(log n)",
+      "O(n^2)"
+    ],
+    "correctIndex": 1,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-8",
+    "text": "Which is a Relational DB (not NoSQL)?",
+    "options": [
+      "MongoDB",
+      "MySQL",
+      "Redis",
+      "Cassandra"
+    ],
+    "correctIndex": 1,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-9",
+    "text": "Shortest path with non-negative weights:",
+    "options": [
+      "Dijkstra",
+      "Prim",
+      "Kruskal",
+      "Bellman-Ford"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-10",
+    "text": "To prevent Deadlock, deny:",
+    "options": [
+      "Hold and Wait",
+      "CPU usage",
+      "Memory access",
+      "Networking"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-11",
+    "text": "Which is NOT an HTTP method?",
+    "options": [
+      "GET",
+      "FETCH",
+      "POST",
+      "PUT"
+    ],
+    "correctIndex": 1,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-12",
+    "text": "Atomicity in DBs is enforced via:",
+    "options": [
+      "Transactions/Locks",
+      "Indexes",
+      "Views",
+      "Foreign Keys"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-13",
+    "text": "Uncontrolled recursion causes:",
+    "options": [
+      "Stack Overflow",
+      "Heap Overflow",
+      "Deadlock",
+      "Fast code"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-14",
+    "text": "Invalid Java Access Modifier:",
+    "options": [
+      "public",
+      "internal",
+      "private",
+      "protected"
+    ],
+    "correctIndex": 1,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-15",
+    "text": "Drawback of Array vs Linked List:",
+    "options": [
+      "Fixed Size",
+      "Slow access",
+      "Uses more memory",
+      "Complex logic"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-16",
+    "text": "REST services are:",
+    "options": [
+      "Stateless",
+      "Stateful",
+      "Connected",
+      "Session-heavy"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-17",
+    "text": "TCP is:",
+    "options": [
+      "Connection-oriented",
+      "Connectionless",
+      "Unreliable",
+      "Fastest"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-18",
+    "text": "Python error handling:",
+    "options": [
+      "try-except",
+      "try-catch",
+      "do-catch",
+      "begin-rescue"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-19",
+    "text": "Which Big-O is invalid/non-standard?",
+    "options": [
+      "O(n^n!)",
+      "O(n)",
+      "O(log n)",
+      "O(1)"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-20",
+    "text": "Stack follows:",
+    "options": [
+      "LIFO",
+      "FIFO",
+      "Random",
+      "Sorted"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-21",
+    "text": "Not a way to create a thread in Java:",
+    "options": [
+      "Observer Interface",
+      "Extend Thread",
+      "Implement Runnable",
+      "Callable"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-22",
+    "text": "Min-Heap root is:",
+    "options": [
+      "Smallest",
+      "Largest",
+      "Random",
+      "Median"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-23",
+    "text": "Invalid SQL Join:",
+    "options": [
+      "SIDE JOIN",
+      "INNER JOIN",
+      "LEFT JOIN",
+      "CROSS JOIN"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-24",
+    "text": "Unique record ID in SQL:",
+    "options": [
+      "Primary Key",
+      "Index",
+      "View",
+      "Trigger"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-25",
+    "text": "To avoid SQL Injection:",
+    "options": [
+      "Parameterised Queries",
+      "Concatenation",
+      "Trust user",
+      "Use GET"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-26",
+    "text": "Top OSI Layer:",
+    "options": [
+      "Application",
+      "Presentation",
+      "Session",
+      "Transport"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-27",
+    "text": "BST Property:",
+    "options": [
+      "Left < Parent < Right",
+      "Left > Parent",
+      "Random",
+      "Sorted arrays"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-28",
+    "text": "Speed up Read Queries:",
+    "options": [
+      "Indexes",
+      "Triggers",
+      "Views",
+      "Constraints"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-29",
+    "text": "Linked List is bad for:",
+    "options": [
+      "Random Access",
+      "Insertions",
+      "Deletions",
+      "Dynamic size"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-30",
+    "text": "Singleton ensures:",
+    "options": [
+      "One Instance",
+      "Many Instances",
+      "No Instances",
+      "Thread safety only"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-31",
+    "text": "DFA Minimisation removes:",
+    "options": [
+      "Redundant states",
+      "All states",
+      "Transitions",
+      "Start state"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-32",
+    "text": "Which grows faster?",
+    "options": [
+      "n log n",
+      "log n",
+      "n",
+      "1"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-33",
+    "text": "Graph edges with direction:",
+    "options": [
+      "Directed",
+      "Undirected",
+      "Weighted",
+      "Cyclic"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-34",
+    "text": "P vs NP:",
+    "options": [
+      "Polynomial vs Nondeterministic Polynomial",
+      "Easy vs Hard",
+      "Polymorphic vs Non",
+      "Pass vs No Pass"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-35",
+    "text": "Regular Languages are accepted by:",
+    "options": [
+      "Finite Automata",
+      "PDA",
+      "Turing Machine",
+      "Calculator"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-36",
+    "text": "Context-Free Languages:",
+    "options": [
+      "Pushdown Automata",
+      "FA",
+      "TM",
+      "Abacus"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-37",
+    "text": "Turing Machines accept:",
+    "options": [
+      "Recursively Enumerable",
+      "Regular",
+      "Finite",
+      "None"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-38",
+    "text": "Halting Problem is:",
+    "options": [
+      "Undecidable",
+      "Easy",
+      "Solved",
+      "Polynomial"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-39",
+    "text": "Merge Sort Recurrence solution:",
+    "options": [
+      "O(n log n)",
+      "O(n^2)",
+      "O(n)",
+      "O(log n)"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "cs-40",
+    "text": "Entropy measures:",
+    "options": [
+      "Uncertainty/Information",
+      "Heat",
+      "Speed",
+      "Order"
+    ],
+    "correctIndex": 0,
+    "category": "CS Theory"
+  },
+  {
+    "id": "dsa-1",
+    "text": "Minimum stacks for a Queue:",
+    "options": [
+      "2",
+      "1",
+      "3",
+      "4"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-2",
+    "text": "Push at front, Pop from end acts as:",
+    "options": [
+      "Queue",
+      "Stack",
+      "Array",
+      "Heap"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-3",
+    "text": "Stack is used for:",
+    "options": [
+      "Function calls / Undo",
+      "Scheduling",
+      "Routing",
+      "Database storage"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-4",
+    "text": "AVL Tree search time:",
+    "options": [
+      "O(log n)",
+      "O(n)",
+      "O(1)",
+      "O(n^2)"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-5",
+    "text": "Linear Search comparisons (worst):",
+    "options": [
+      "n",
+      "log n",
+      "1",
+      "n/2"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-6",
+    "text": "Quick Sort Average Case:",
+    "options": [
+      "O(n log n)",
+      "O(n^2)",
+      "O(n)",
+      "O(log n)"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-7",
+    "text": "Merge Sort Worst Case:",
+    "options": [
+      "O(n log n)",
+      "O(n^2)",
+      "O(n)",
+      "O(log n)"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-8",
+    "text": "Binary Search requires:",
+    "options": [
+      "Sorted Array",
+      "Linked List",
+      "Stack",
+      "Unsorted Array"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-9",
+    "text": "BFS uses which structure?",
+    "options": [
+      "Queue",
+      "Stack",
+      "Heap",
+      "Tree"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-10",
+    "text": "DFS uses which structure?",
+    "options": [
+      "Stack",
+      "Queue",
+      "Array",
+      "Map"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-11",
+    "text": "Dynamic Array amortized push:",
+    "options": [
+      "O(1)",
+      "O(n)",
+      "O(log n)",
+      "O(n^2)"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-12",
+    "text": "Hash Table Insert (Avg):",
+    "options": [
+      "O(1)",
+      "O(n)",
+      "O(log n)",
+      "O(n^2)"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-13",
+    "text": "Full Binary Tree property:",
+    "options": [
+      "Nodes have 0 or 2 children",
+      "All leaves same level",
+      "Nodes have 1 child",
+      "Is sorted"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-14",
+    "text": "Height of Complete Tree:",
+    "options": [
+      "log n",
+      "n",
+      "n/2",
+      "1"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-15",
+    "text": "Matrix Mult (Naive):",
+    "options": [
+      "n^3",
+      "n^2",
+      "n log n",
+      "n"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-16",
+    "text": "Dijkstra Worst Case (basic):",
+    "options": [
+      "O(E log V) or O(V^2)",
+      "O(n)",
+      "O(1)",
+      "O(n!)"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-17",
+    "text": "Greedy Algo Example:",
+    "options": [
+      "Kruskal/Prim",
+      "Merge Sort",
+      "Binary Search",
+      "Factorial"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-18",
+    "text": "0/1 Knapsack is:",
+    "options": [
+      "NP-Hard",
+      "P",
+      "O(n)",
+      "Easy"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-19",
+    "text": "Merge Step Complexity:",
+    "options": [
+      "O(n)",
+      "O(log n)",
+      "O(1)",
+      "O(n^2)"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-20",
+    "text": "Fibonacci DP Complexity:",
+    "options": [
+      "O(n)",
+      "O(2^n)",
+      "O(n^2)",
+      "O(1)"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-21",
+    "text": "BST Worst Case Search:",
+    "options": [
+      "O(n)",
+      "O(log n)",
+      "O(1)",
+      "O(n log n)"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-22",
+    "text": "Topological Sort is for:",
+    "options": [
+      "DAG (Directed Acyclic Graph)",
+      "Cyclic Graph",
+      "Tree",
+      "Stack"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-23",
+    "text": "Balanced Parentheses use:",
+    "options": [
+      "Stack",
+      "Queue",
+      "Heap",
+      "Graph"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-24",
+    "text": "Min-Heap remove-min:",
+    "options": [
+      "O(log n)",
+      "O(1)",
+      "O(n)",
+      "O(n^2)"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-25",
+    "text": "Stable Sort preserves:",
+    "options": [
+      "Relative order of equal keys",
+      "Speed",
+      "Memory",
+      " Pivot"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-26",
+    "text": "Heap Property (Min):",
+    "options": [
+      "Parent <= Children",
+      "Parent >= Children",
+      "Sorted Left/Right",
+      "No Property"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-27",
+    "text": "Quickselect Avg:",
+    "options": [
+      "O(n)",
+      "O(n log n)",
+      "O(n^2)",
+      "O(1)"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-28",
+    "text": "Dynamic Programming uses:",
+    "options": [
+      "Memoization / Tabulation",
+      "Random guessing",
+      "Greedy choice",
+      "Sorting"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-29",
+    "text": "Bellman-Ford handles:",
+    "options": [
+      "Negative Weights",
+      "Only Positive",
+      "Cycles only",
+      "Nothing"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-30",
+    "text": "Max Flow Algorithm:",
+    "options": [
+      "Ford-Fulkerson",
+      "Dijkstra",
+      "Prim",
+      "Kruskal"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-31",
+    "text": "Disjoint Set Union (DSU) ops:",
+    "options": [
+      "Find / Union",
+      "Push / Pop",
+      "Insert / Delete",
+      "Add / Remove"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-32",
+    "text": "Backtracking is:",
+    "options": [
+      "Recursive search with prune",
+      "Iterative loop",
+      "Greedy",
+      "Sorting"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-33",
+    "text": "Bitwise x & (x-1) == 0 checks:",
+    "options": [
+      "Power of 2",
+      "Odd number",
+      "Even number",
+      "Negative"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-34",
+    "text": "Floyd-Warshall is for:",
+    "options": [
+      "All-pairs shortest path",
+      "Single source",
+      "MST",
+      "Flow"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-35",
+    "text": "Trie is used for:",
+    "options": [
+      "Prefix strings / Dictionary",
+      "Numbers",
+      "Images",
+      "Audio"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-36",
+    "text": "Radix Sort is:",
+    "options": [
+      "Non-comparative integer sort",
+      "Comparative",
+      "O(n^2)",
+      "Unstable"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-37",
+    "text": "Huffman Coding is:",
+    "options": [
+      "Greedy Compression",
+      "Sorting",
+      "Encryption",
+      "Hashing"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-38",
+    "text": "A* Search uses:",
+    "options": [
+      "Heuristics",
+      "Randomness",
+      "Brute Force",
+      "Stack"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-39",
+    "text": "Suffix Tree is for:",
+    "options": [
+      "String pattern matching",
+      "Numeric Sort",
+      "Database Index",
+      "Graph Traversal"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  },
+  {
+    "id": "dsa-40",
+    "text": "Bloom Filter is:",
+    "options": [
+      "Probabilistic set structure",
+      "Deterministic List",
+      "Tree",
+      "Hash Map"
+    ],
+    "correctIndex": 0,
+    "category": "DSA"
+  }
+]
