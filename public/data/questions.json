@@ -10,7 +10,7 @@
         "Niene Stom"
       ],
       "correct_option_index": 2,
-      [cite_start]"explanation": "Python was created by Guido van Rossum[cite: 6, 7]."
+      "explanation": "Python was created by Guido van Rossum."
     },
     {
       "category": "Python Syntax and Logic",
@@ -22,7 +22,7 @@
         "All of the above"
       ],
       "correct_option_index": 3,
-      [cite_start]"explanation": "Python is an interpreted language supporting OOP, structured, and functional programming[cite: 10]."
+      "explanation": "Python is an interpreted language supporting OOP, structured, and functional programming."
     },
     {
       "category": "Python Syntax and Logic",
@@ -34,7 +34,7 @@
         "1"
       ],
       "correct_option_index": 0,
-      [cite_start]"explanation": "The result is 7 because the modulus operator has higher precedence (3 % 5 = 3), and then addition is performed (4 + 3 = 7)[cite: 13]."
+      "explanation": "The result is 7 because the modulus operator has higher precedence (3 % 5 = 3), and then addition is performed (4 + 3 = 7)."
     },
     {
       "category": "Python Syntax and Logic",
@@ -46,7 +46,7 @@
         "fun"
       ],
       "correct_option_index": 2,
-      [cite_start]"explanation": "In Python, the 'def' keyword is used to define a function[cite: 14, 15]."
+      "explanation": "In Python, the 'def' keyword is used to define a function."
     },
     {
       "category": "Java Syntax and Logic",
@@ -58,7 +58,7 @@
         "nulla"
       ],
       "correct_option_index": 1,
-      [cite_start]"explanation": "Java classes are declared with the 'class' keyword[cite: 124]."
+      "explanation": "Java classes are declared with the 'class' keyword."
     },
     {
       "category": "Java Syntax and Logic",
@@ -70,7 +70,7 @@
         "run()"
       ],
       "correct_option_index": 2,
-      [cite_start]"explanation": "The entry point is main(), specifically public static void main(String[] args)[cite: 128]."
+      "explanation": "The entry point is main(), specifically public static void main(String[] args)."
     },
     {
       "category": "Java Syntax and Logic",
@@ -82,7 +82,7 @@
         "float"
       ],
       "correct_option_index": 2,
-      [cite_start]"explanation": "String is an object in Java, not a primitive data type[cite: 131]."
+      "explanation": "String is an object in Java, not a primitive data type."
     },
     {
       "category": "Java Syntax and Logic",
@@ -94,7 +94,7 @@
         "final"
       ],
       "correct_option_index": 3,
-      [cite_start]"explanation": "The 'final' keyword is used to declare constants (e.g., final int MAX = 10)[cite: 134]."
+      "explanation": "The 'final' keyword is used to declare constants (e.g., final int MAX = 10)."
     },
     {
       "category": "Operating System Knowledge",
@@ -106,7 +106,7 @@
         "Serve web pages"
       ],
       "correct_option_index": 1,
-      [cite_start]"explanation": "The OS manages hardware resources and provides services to applications[cite: 229]."
+      "explanation": "The OS manages hardware resources and provides services to applications."
     },
     {
       "category": "Operating System Knowledge",
@@ -118,7 +118,7 @@
         "Compiling code"
       ],
       "correct_option_index": 3,
-      [cite_start]"explanation": "Compiling is done by compilers, not the Operating System[cite: 232]."
+      "explanation": "Compiling is done by compilers, not the Operating System."
     },
     {
       "category": "Operating System Knowledge",
@@ -130,7 +130,7 @@
         "Switching network cards"
       ],
       "correct_option_index": 1,
-      [cite_start]"explanation": "A context switch saves and restores registers and CPU state[cite: 235]."
+      "explanation": "A context switch saves and restores registers and CPU state."
     },
     {
       "category": "Operating System Knowledge",
@@ -142,7 +142,7 @@
         "Debug mode"
       ],
       "correct_option_index": 1,
-      [cite_start]"explanation": "Supervisor mode allows the kernel to control processes, memory, and devices[cite: 225, 236]."
+      "explanation": "Supervisor mode allows the kernel to control processes, memory, and devices."
     },
     {
       "category": "Networking Knowledge",
@@ -154,7 +154,7 @@
         "Single computer"
       ],
       "correct_option_index": 2,
-      [cite_start]"explanation": "A computer network is an interconnection of computers for sharing resources[cite: 321]."
+      "explanation": "A computer network is an interconnection of computers for sharing resources."
     },
     {
       "category": "Networking Knowledge",
@@ -166,7 +166,7 @@
         "An application"
       ],
       "correct_option_index": 1,
-      [cite_start]"explanation": "The Internet is a global collection of interconnected networks (WANs)[cite: 323]."
+      "explanation": "The Internet is a global collection of interconnected networks (WANs)."
     },
     {
       "category": "Networking Knowledge",
@@ -178,7 +178,7 @@
         "MAN"
       ],
       "correct_option_index": 1,
-      [cite_start]"explanation": "Bluetooth is a technology used for Personal Area Networks (PAN)[cite: 325]."
+      "explanation": "Bluetooth is a technology used for Personal Area Networks (PAN)."
     },
     {
       "category": "Networking Knowledge",
@@ -190,7 +190,7 @@
         "OSI layer 7"
       ],
       "correct_option_index": 1,
-      [cite_start]"explanation": "An overlay network is built on top of another network[cite: 326]."
+      "explanation": "An overlay network is built on top of another network."
     },
     {
       "category": "System Design and Architecture",
@@ -202,7 +202,7 @@
         "The CAP theorem says a distributed system can deliver only two of Consistency, Availability, and Partition tolerance"
       ],
       "correct_option_index": 3,
-      [cite_start]"explanation": "The CAP theorem states that a distributed system can have only two of Consistency, Availability, and Partition tolerance[cite: 432, 434]."
+      "explanation": "The CAP theorem states that a distributed system can have only two of Consistency, Availability, and Partition tolerance."
     },
     {
       "category": "System Design and Architecture",
@@ -214,7 +214,7 @@
         "Improving code"
       ],
       "correct_option_index": 1,
-      [cite_start]"explanation": "Vertical scaling adds more power (CPU, RAM) to an existing machine[cite: 437]."
+      "explanation": "Vertical scaling adds more power (CPU, RAM) to an existing machine."
     },
     {
       "category": "System Design and Architecture",
@@ -226,7 +226,7 @@
         "Using more threads"
       ],
       "correct_option_index": 1,
-      [cite_start]"explanation": "Horizontal scaling adds more servers to distribute the load[cite: 440]."
+      "explanation": "Horizontal scaling adds more servers to distribute the load."
     },
     {
       "category": "System Design and Architecture",
@@ -238,7 +238,7 @@
         "A compiler"
       ],
       "correct_option_index": 1,
-      [cite_start]"explanation": "A load balancer spreads incoming traffic to multiple backend servers[cite: 443]."
+      "explanation": "A load balancer spreads incoming traffic to multiple backend servers."
     },
     {
       "category": "Data Science & Machine Learning",
@@ -250,7 +250,7 @@
         "Storing data"
       ],
       "correct_option_index": 0,
-      [cite_start]"explanation": "Data science primarily focuses on analyzing and interpreting data[cite: 516]."
+      "explanation": "Data science primarily focuses on analyzing and interpreting data."
     },
     {
       "category": "Data Science & Machine Learning",
@@ -262,7 +262,7 @@
         "All of the above"
       ],
       "correct_option_index": 3,
-      [cite_start]"explanation": "Data visualization, machine learning, and statistics are all important skills[cite: 518]."
+      "explanation": "Data visualization, machine learning, and statistics are all important skills."
     },
     {
       "category": "Data Science & Machine Learning",
@@ -274,7 +274,7 @@
         "Reinforcement"
       ],
       "correct_option_index": 0,
-      [cite_start]"explanation": "Computational learning is not a standard category of machine learning like Supervised, Unsupervised, or Reinforcement[cite: 521]."
+      "explanation": "Computational learning is not a standard category of machine learning like Supervised, Unsupervised, or Reinforcement."
     },
     {
       "category": "Data Science & Machine Learning",
@@ -286,7 +286,7 @@
         "All equally"
       ],
       "correct_option_index": 2,
-      [cite_start]"explanation": "Variety (different data types) is a key big data characteristic relevant to data science[cite: 524]."
+      "explanation": "Variety (different data types) is a key big data characteristic relevant to data science."
     },
     {
       "category": "Web Development",
@@ -298,7 +298,7 @@
         "<hyper>"
       ],
       "correct_option_index": 2,
-      [cite_start]"explanation": "The <a> tag creates hyperlinks in HTML[cite: 611, 613]."
+      "explanation": "The <a> tag creates hyperlinks in HTML."
     },
     {
       "category": "Web Development",
@@ -310,7 +310,7 @@
         "<style src=\"\">"
       ],
       "correct_option_index": 2,
-      [cite_start]"explanation": "The <link> tag with rel=\"stylesheet\" is used to include external CSS[cite: 621]."
+      "explanation": "The <link> tag with rel=\"stylesheet\" is used to include external CSS."
     },
     {
       "category": "Web Development",
@@ -322,7 +322,7 @@
         "Link color"
       ],
       "correct_option_index": 1,
-      [cite_start]"explanation": "The color property in CSS sets the text (font) color[cite: 624]."
+      "explanation": "The color property in CSS sets the text (font) color."
     },
     {
       "category": "Web Development",
@@ -334,7 +334,7 @@
         "<article>"
       ],
       "correct_option_index": 1,
-      [cite_start]"explanation": "The <div> tag is the generic container used to define a division or section[cite: 627]."
+      "explanation": "The <div> tag is the generic container used to define a division or section."
     },
     {
       "category": "General Computer Science Theory",
@@ -346,7 +346,7 @@
         "BST"
       ],
       "correct_option_index": 2,
-      [cite_start]"explanation": "A HashMap combined with a Doubly Linked List provides O(1) access and eviction for an LRU cache[cite: 722]."
+      "explanation": "A HashMap combined with a Doubly Linked List provides O(1) access and eviction for an LRU cache."
     },
     {
       "category": "General Computer Science Theory",
@@ -358,7 +358,7 @@
         "O(n log n)"
       ],
       "correct_option_index": 1,
-      [cite_start]"explanation": "Searching a balanced BST (like an AVL tree) takes O(log n) time[cite: 718, 726]."
+      "explanation": "Searching a balanced BST (like an AVL tree) takes O(log n) time."
     },
     {
       "category": "General Computer Science Theory",
@@ -370,7 +370,7 @@
         "Bubble Sort"
       ],
       "correct_option_index": 3,
-      [cite_start]"explanation": "Bubble sort is a stable sort with a worst-case time complexity of O(n^2)[cite: 729]."
+      "explanation": "Bubble sort is a stable sort with a worst-case time complexity of O(n^2)."
     },
     {
       "category": "General Computer Science Theory",
@@ -382,7 +382,7 @@
         "Polymorphism"
       ],
       "correct_option_index": 2,
-      [cite_start]"explanation": "Recursion is a programming technique, not a core Object-Oriented Programming concept[cite: 732]."
+      "explanation": "Recursion is a programming technique, not a core Object-Oriented Programming concept."
     },
     {
       "category": "Data Structures & Algorithms (DSA)",
@@ -394,7 +394,7 @@
         "4"
       ],
       "correct_option_index": 2,
-      [cite_start]"explanation": "Two stacks are required to implement a queue (one for enqueue, one for dequeue)[cite: 828]."
+      "explanation": "Two stacks are required to implement a queue (one for enqueue, one for dequeue)."
     },
     {
       "category": "Data Structures & Algorithms (DSA)",
@@ -404,7 +404,7 @@
         "False"
       ],
       "correct_option_index": 1,
-      "explanation": "If you push at the front, popping from the end creates a FIFO (Queue) structure, but the question implies implementing LIFO (Stack). [cite_start]For a stack, you would pop from the front[cite: 830]."
+      "explanation": "If you push at the front, popping from the end creates a FIFO (Queue) structure, but the question implies implementing LIFO (Stack). For a stack, you would pop from the front."
     },
     {
       "category": "Data Structures & Algorithms (DSA)",
@@ -415,7 +415,7 @@
         "All of the above"
       ],
       "correct_option_index": 2,
-      [cite_start]"explanation": "Stack applications include function call management and expression evaluation[cite: 831]."
+      "explanation": "Stack applications include function call management and expression evaluation."
     },
     {
       "category": "Data Structures & Algorithms (DSA)",
@@ -425,7 +425,7 @@
         "AVL O(log n), BST O(n)"
       ],
       "correct_option_index": 0,
-      [cite_start]"explanation": "Balanced trees (AVL) have O(log n) search time, whereas an unbalanced BST can degrade to linear O(n) time[cite: 839]."
+      "explanation": "Balanced trees (AVL) have O(log n) search time, whereas an unbalanced BST can degrade to linear O(n) time."
     }
   ]
 }

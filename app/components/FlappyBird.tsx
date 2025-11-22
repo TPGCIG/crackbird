@@ -2,11 +2,28 @@
 
 import { useEffect, useRef, useState } from 'react'
 
+interface Question {
+  category: string
+  question: string
+  options: string[]
+  correct_option_index: number
+  explanation: string
+}
+
 export default function FlappyBird() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [gameState, setGameState] = useState<'start' | 'playing' | 'gameover'>('start')
   const [score, setScore] = useState(0)
   const [bestScore, setBestScore] = useState(0)
+  const [questions, setQuestions] = useState<Question[]>([])
+  const [quizActive, setQuizActive] = useState(false)
+  const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null)
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
+  const [showExplanation, setShowExplanation] = useState(false)
+  const [countdown, setCountdown] = useState<number | null>(null)
+  const [isSpedUp, setIsSpedUp] = useState(false)
+  const [shouldSpeedUp, setShouldSpeedUp] = useState(false)
+  const speedBoostTimerRef = useRef<NodeJS.Timeout | null>(null)
 
   const gameDataRef = useRef({
     bird: {
@@ -31,6 +48,9 @@ export default function FlappyBird() {
     },
     animationId: null as number | null,
     gameState: 'start' as 'start' | 'playing' | 'gameover',
+    quizActive: false,
+    countdownActive: false,
+    isSpedUp: false,
   })
 
   useEffect(() => {
@@ -39,7 +59,18 @@ export default function FlappyBird() {
       setBestScore(parseInt(stored))
     }
     initBackground()
+    loadQuestions()
   }, [])
+
+  const loadQuestions = async () => {
+    try {
+      const response = await fetch('/data/questions.json')
+      const data = await response.json()
+      setQuestions(data.quiz_collection)
+    } catch (error) {
+      console.error('Failed to load questions:', error)
+    }
+  }
 
   const initBackground = () => {
     const clouds = []
@@ -64,6 +95,17 @@ export default function FlappyBird() {
     gameDataRef.current.pipes = []
     gameDataRef.current.pipeTimer = 0
     gameDataRef.current.background.ground = 0
+    gameDataRef.current.quizActive = false
+    gameDataRef.current.countdownActive = false
+    gameDataRef.current.isSpedUp = false
+    setQuizActive(false)
+    setCountdown(null)
+    setIsSpedUp(false)
+    setShouldSpeedUp(false)
+    if (speedBoostTimerRef.current) {
+      clearTimeout(speedBoostTimerRef.current)
+      speedBoostTimerRef.current = null
+    }
     initBackground()
     requestAnimationFrame(gameLoop)
   }
@@ -78,13 +120,101 @@ export default function FlappyBird() {
     if (gameDataRef.current.animationId) {
       cancelAnimationFrame(gameDataRef.current.animationId)
     }
+    // Clear speed boost timer
+    if (speedBoostTimerRef.current) {
+      clearTimeout(speedBoostTimerRef.current)
+      speedBoostTimerRef.current = null
+    }
+    gameDataRef.current.isSpedUp = false
+    setIsSpedUp(false)
+    setShouldSpeedUp(false)
   }
 
   const handleFlap = () => {
-    if (gameDataRef.current.gameState === 'playing') {
+    if (gameDataRef.current.gameState === 'playing' && !gameDataRef.current.quizActive && !gameDataRef.current.countdownActive) {
       gameDataRef.current.bird.velocity = gameDataRef.current.bird.jump
+
+      // 15% chance to trigger a quiz
+      if (Math.random() < 0.15 && questions.length > 0) {
+        triggerQuiz()
+      }
     }
   }
+
+  const triggerQuiz = () => {
+    // Cancel the animation frame to pause the game
+    if (gameDataRef.current.animationId) {
+      cancelAnimationFrame(gameDataRef.current.animationId)
+      gameDataRef.current.animationId = null
+    }
+
+    const randomQuestion = questions[Math.floor(Math.random() * questions.length)]
+    setCurrentQuestion(randomQuestion)
+    setQuizActive(true)
+    gameDataRef.current.quizActive = true
+    setSelectedAnswer(null)
+    setShowExplanation(false)
+  }
+
+  const handleQuizAnswer = (answerIndex: number) => {
+    setSelectedAnswer(answerIndex)
+    setShowExplanation(true)
+  }
+
+  const resumeGame = (isCorrect: boolean) => {
+    setQuizActive(false)
+    gameDataRef.current.quizActive = false
+    setCurrentQuestion(null)
+    setSelectedAnswer(null)
+    setShowExplanation(false)
+
+    if (isCorrect) {
+      // Correct answer: Start countdown
+      setShouldSpeedUp(false)
+      setCountdown(3)
+      gameDataRef.current.countdownActive = true
+    } else {
+      // Wrong answer: Mark that we should speed up after countdown
+      setShouldSpeedUp(true)
+      setCountdown(3)
+      gameDataRef.current.countdownActive = true
+    }
+  }
+
+  // Handle countdown timer
+  useEffect(() => {
+    if (countdown !== null && countdown > 0) {
+      const timer = setTimeout(() => {
+        setCountdown(countdown - 1)
+      }, 1000)
+      return () => clearTimeout(timer)
+    } else if (countdown === 0) {
+      // Countdown finished, resume game
+      setCountdown(null)
+      gameDataRef.current.countdownActive = false
+
+      // If we should speed up (wrong answer), activate it now
+      if (shouldSpeedUp) {
+        setIsSpedUp(true)
+        gameDataRef.current.isSpedUp = true
+        setShouldSpeedUp(false)
+
+        // Clear any existing timer
+        if (speedBoostTimerRef.current) {
+          clearTimeout(speedBoostTimerRef.current)
+        }
+
+        // Set timer to remove speed boost after 3 seconds of gameplay
+        speedBoostTimerRef.current = setTimeout(() => {
+          setIsSpedUp(false)
+          gameDataRef.current.isSpedUp = false
+          speedBoostTimerRef.current = null
+        }, 3000)
+      }
+
+      requestAnimationFrame(gameLoop)
+    }
+  }, [countdown, shouldSpeedUp])
 
   const gameLoop = () => {
     const canvas = canvasRef.current
@@ -95,8 +225,11 @@ export default function FlappyBird() {
 
     const { bird, pipes, background } = gameDataRef.current
 
+    // Calculate current speed (1.5x if sped up)
+    const currentSpeed = gameDataRef.current.pipeSpeed * (gameDataRef.current.isSpedUp ? 1.5 : 1)
+
     // Update
-    if (gameDataRef.current.gameState === 'playing') {
+    if (gameDataRef.current.gameState === 'playing' && !gameDataRef.current.quizActive && !gameDataRef.current.countdownActive) {
       // Update bird
       bird.velocity += bird.gravity
       bird.y += bird.velocity
@@ -110,12 +243,12 @@ export default function FlappyBird() {
 
       // Update background
       background.clouds.forEach((cloud: any) => {
-        cloud.x -= cloud.speed
+        cloud.x -= cloud.speed * (gameDataRef.current.isSpedUp ? 1.5 : 1)
         if (cloud.x + cloud.width < 0) {
           cloud.x = 400
         }
       })
-      background.ground -= gameDataRef.current.pipeSpeed
+      background.ground -= currentSpeed
       if (background.ground <= -50) {
         background.ground = 0
       }
@@ -134,7 +267,7 @@ export default function FlappyBird() {
 
       for (let i = pipes.length - 1; i >= 0; i--) {
         const pipe = pipes[i]
-        pipe.x -= gameDataRef.current.pipeSpeed
+        pipe.x -= currentSpeed
 
         // Check if passed
         if (!pipe.passed && bird.x > pipe.x + gameDataRef.current.pipeWidth) {
@@ -261,14 +394,14 @@ export default function FlappyBird() {
 
     ctx.restore()
 
-    if (gameDataRef.current.gameState === 'playing') {
+    if (gameDataRef.current.gameState === 'playing' && !gameDataRef.current.quizActive && !gameDataRef.current.countdownActive) {
       gameDataRef.current.animationId = requestAnimationFrame(gameLoop)
     }
   }
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === 'Space' && gameDataRef.current.gameState === 'playing') {
+      if (e.code === 'Space' && gameDataRef.current.gameState === 'playing' && !gameDataRef.current.quizActive && !gameDataRef.current.countdownActive) {
         e.preventDefault()
         handleFlap()
       }
@@ -316,6 +449,61 @@ export default function FlappyBird() {
           <button className="button" onClick={startGame}>
             Play Again
           </button>
+        </div>
+      )}
+
+      {quizActive && currentQuestion && (
+        <div className="quizOverlay">
+          <div className="quizContainer">
+            <div className="quizCategory">{currentQuestion.category}</div>
+            <h2 className="quizQuestion">{currentQuestion.question}</h2>
+            <div className="quizOptions">
+              {currentQuestion.options.map((option, index) => (
+                <button
+                  key={index}
+                  className={`quizOption ${
+                    selectedAnswer !== null
+                      ? index === currentQuestion.correct_option_index
+                        ? 'correct'
+                        : index === selectedAnswer
+                        ? 'incorrect'
+                        : ''
+                      : ''
+                  }`}
+                  onClick={() => !showExplanation && handleQuizAnswer(index)}
+                  disabled={showExplanation}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+            {showExplanation && (
+              <div className="quizExplanation">
+                <p className={selectedAnswer === currentQuestion.correct_option_index ? 'correct' : 'incorrect'}>
+                  {selectedAnswer === currentQuestion.correct_option_index ? '✓ Correct!' : '✗ Incorrect'}
+                </p>
+                <p>{currentQuestion.explanation}</p>
+                <button
+                  className="button"
+                  onClick={() => resumeGame(selectedAnswer === currentQuestion.correct_option_index)}
+                >
+                  Continue
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {countdown !== null && countdown > 0 && (
+        <div className="countdownOverlay">
+          <div className="countdownNumber">{countdown}</div>
+        </div>
+      )}
+
+      {isSpedUp && gameState === 'playing' && (
+        <div className="speedBanner">
+          ⚡ SPED UP! ⚡
         </div>
       )}
     </div>
